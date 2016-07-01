@@ -10,7 +10,47 @@
     tools:context="com.epicodus.sharedchores.MainActivity">
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Shared Chores"
+        android:textSize="50sp"
+        android:id="@+id/sharedChoresTitle"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textAlignment="center" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="shared happiness"
+        android:id="@+id/sharedHappiness"
+        android:textSize="25sp"
+        android:layout_below="@+id/sharedChoresTitle"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:textStyle="bold" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SIGN UP"
+        android:id="@+id/signUpButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="14sp"
+        android:background="@color/colorDeepOrange500"
+        android:textColor="#FFF" />
+
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:id="@+id/imageView"
+        android:background="@drawable/clean_house"
+        android:layout_above="@+id/signUpButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/sharedHappiness" />
+
 </RelativeLayout>
