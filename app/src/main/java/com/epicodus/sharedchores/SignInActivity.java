@@ -42,10 +42,10 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
             String emailSignIn = mEmailSignIn.getText().toString();
             String passwordSignIn = mPasswordSignIn.getText().toString();
 
-            Intent goToWelcomePage = new Intent(this, WelcomePageActivity.class);
-            goToWelcomePage.putExtra("email", emailSignIn);
-            goToWelcomePage.putExtra("password", passwordSignIn);
-            startActivity(goToWelcomePage);
+            Intent goToUserPage = new Intent(this, UserPageActivity.class);
+            goToUserPage.putExtra("email", emailSignIn);
+            goToUserPage.putExtra("password", passwordSignIn);
+            startActivity(goToUserPage);
         }
     }
 }

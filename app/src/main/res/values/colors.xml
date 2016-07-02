@@ -7,8 +7,10 @@
     <color name="colorDeepOrange100">#ffccbc</color>
     <color name="colorDeepOrange500">#ff5722</color>
     <color name="colorDeepOrange800">#d84315</color>
+    <color name="colorGreyBackground">#d3d3d3</color>
+
     <color name="colorPrimary">#FF5722</color>
-    <color name="colorPrimaryDark">#E64A19</color>
+    <color name="colorPrimaryDark">#EE652F</color>
     <color name="colorPrimaryLight">#FFCCBC</color>
     <color name="colorTextIcons">#FFFFFF</color>
     <color name="colorAccent">#009688</color>

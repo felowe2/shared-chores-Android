@@ -46,12 +46,12 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             String passwordInput = mPasswordInput.getText().toString();
             String password2Input = mPassword2Input.getText().toString();
 
-            Intent goToSignInPage = new Intent(this, SignInActivity.class);
-            goToSignInPage.putExtra("username", usernameInput);
-            goToSignInPage.putExtra("email", emailInput);
-            goToSignInPage.putExtra("password", passwordInput);
-            goToSignInPage.putExtra("password2", password2Input);
-            startActivity(goToSignInPage);
+            Intent goToWelcomePage = new Intent(this, WelcomePageActivity.class);
+            goToWelcomePage.putExtra("username", usernameInput);
+            goToWelcomePage.putExtra("email", emailInput);
+            goToWelcomePage.putExtra("password", passwordInput);
+            goToWelcomePage.putExtra("password2", password2Input);
+            startActivity(goToWelcomePage);
         }
 
     }

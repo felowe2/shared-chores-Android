@@ -12,8 +12,10 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class WelcomePageActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.welcomeButton)
-    Button mWelcomeButton;
+    @Bind(R.id.getStartedButton) Button mGetStartedButton;
+    @Bind(R.id.welcomeTextView) TextView mWelcomeTextView;
+    @Bind(R.id.aboutUsTextView) TextView mAboutUsTextView;
+    @Bind(R.id.aboutUsTitle) TextView mAboutUsTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,19 +24,25 @@ public class WelcomePageActivity extends AppCompatActivity implements View.OnCli
         ButterKnife.bind(this);
 
         //FONTS EVERYTHING
-        mWelcomeButton = (Button) findViewById(R.id.welcomeButton);
+        mGetStartedButton = (Button) findViewById(R.id.getStartedButton);
         Typeface boldieFont = Typeface.createFromAsset(getAssets(), "fonts/Boldie.ttf");
-        mWelcomeButton.setTypeface(boldieFont);
+        mGetStartedButton.setTypeface(boldieFont);
+        mAboutUsTitle.setTypeface(boldieFont);
 
 // END OF FONTS
 
-        mWelcomeButton.setOnClickListener(this);
+        Intent showUsername = getIntent();
+        String username = showUsername.getStringExtra("username");
+        mWelcomeTextView.setText("Welcome to Shared Chores " + username + " we are happy you're here!");
+        mAboutUsTextView.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum");
+
+        mGetStartedButton.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View v) {
-        if (v == mWelcomeButton) {
+        if (v == mGetStartedButton) {
             Intent goToUserPage = new Intent(this, UserPageActivity.class);
             startActivity(goToUserPage);
         }

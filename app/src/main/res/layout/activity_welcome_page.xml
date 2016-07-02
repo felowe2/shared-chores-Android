@@ -7,14 +7,55 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.epicodus.sharedchores.WelcomePageActivity">
+    tools:context="com.epicodus.sharedchores.WelcomePageActivity"
+    android:background="@color/background_material_light">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/welcomeTextView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:typeface="sans"
+        android:textSize="35sp"
+        android:textAlignment="center" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/aboutUsTextView"
+        android:layout_marginTop="141dp"
+        android:lineSpacingExtra="7dp"
+        android:layout_below="@+id/welcomeTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/aboutUsTitle"
+        android:text="ABOUT US"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:layout_below="@+id/welcomeTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="47dp"
+        android:textStyle="bold"
+        android:textColor="#231F20" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Let&apos;s get started"
-        android:id="@+id/welcomeButton"
+        android:id="@+id/getStartedButton"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="#EE652F"
+        android:textColor="#231F20"
+        android:textStyle="bold" />
+
 </RelativeLayout>

@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.epicodus.sharedchores.UserPageActivity">
+    tools:context="com.epicodus.sharedchores.UserPageActivity"
+    android:background="@color/background_material_light">
 
     <Button
         android:layout_width="wrap_content"

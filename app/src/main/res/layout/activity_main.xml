@@ -8,17 +8,19 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.epicodus.sharedchores.MainActivity"
-    android:clickable="true">
+    android:clickable="true"
+    android:background="#FFFFFF">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:id="@+id/imageView"
-        android:layout_below="@+id/sharedHappiness"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="@drawable/logo"
-        android:layout_above="@+id/signUpButton" />
+        android:background="@drawable/logo3"
+        android:layout_above="@+id/signUpButton"
+        android:layout_below="@+id/sharedHappiness"
+        android:layout_marginTop="20sp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -33,7 +35,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="33dp" />
+        android:layout_marginTop="33dp"
+        android:textColor="#231F20" />
 
     <TextView
         android:layout_width="match_parent"
@@ -44,11 +47,12 @@
         android:textSize="20sp"
         android:textAlignment="center"
         android:background="#00ffffff"
+        android:textIsSelectable="true"
+        android:textStyle="bold"
         android:layout_below="@+id/welcome"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textIsSelectable="true"
-        android:textStyle="bold" />
+        android:textColor="#231F20" />
 
     <Button
         android:layout_width="wrap_content"
@@ -60,7 +64,12 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="40dp"
-        android:layout_marginStart="40dp" />
+        android:layout_marginStart="40dp"
+        android:background="#EE652F"
+        android:textColor="#231F20"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="33dp"
+        android:textStyle="bold" />
 
 
     <Button
@@ -73,6 +82,11 @@
         android:layout_alignRight="@+id/imageView"
         android:layout_alignEnd="@+id/imageView"
         android:layout_marginRight="33dp"
-        android:layout_marginEnd="33dp" />
+        android:layout_marginEnd="33dp"
+        android:background="#008FD1"
+        android:textColor="#231F20"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="40dp"
+        android:textStyle="bold" />
 
 </RelativeLayout>
