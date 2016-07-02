@@ -13,13 +13,10 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class SignInActivity extends AppCompatActivity implements View.OnClickListener {
-
-    @Bind(R.id.emailSignIn)
-    EditText mEmailSignIn;
-    @Bind(R.id.passwordSignIn)
-    EditText mPasswordSignIn;
-    @Bind(R.id.signInButton)
-    Button mSignInButton;
+    @Bind(R.id.logIntextView) EditText mLogInTextView;
+    @Bind(R.id.emailSignIn) EditText mEmailSignIn;
+    @Bind(R.id.passwordSignIn) EditText mPasswordSignIn;
+    @Bind(R.id.signInButton) Button mSignInButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +28,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         mSignInButton = (Button) findViewById(R.id.signInButton);
         Typeface boldieFont = Typeface.createFromAsset(getAssets(), "fonts/Boldie.ttf");
         mSignInButton.setTypeface(boldieFont);
+        mLogInTextView.setTypeface(boldieFont);
 // END OF FONTS
 
         mSignInButton.setOnClickListener(this);

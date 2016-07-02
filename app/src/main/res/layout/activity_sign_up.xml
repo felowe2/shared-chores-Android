@@ -17,12 +17,12 @@
         android:text="Log in with Facebook"
         android:textAllCaps="false"
         android:id="@+id/logInFacebookButton"
-        android:background="#3b5998"
         android:textColor="#ffffff"
-        android:textSize="14sp"
+        android:textSize="17sp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="@drawable/facebook_button"/>
 
     <Button
         android:layout_width="match_parent"
@@ -32,11 +32,10 @@
         android:id="@+id/logInGmailButton"
         android:layout_below="@+id/logInFacebookButton"
         android:layout_centerHorizontal="true"
-        android:background="#db3236"
         android:layout_marginTop="10dp"
-        android:layout_alignParentStart="true"
         android:textColor="#ffffff"
-        android:textSize="14sp" />
+        android:textSize="17sp"
+        android:background="@drawable/google_button"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -47,7 +46,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:layout_marginTop="60dp"
         android:textColor="#231F20" />
 
@@ -57,12 +56,13 @@
         android:inputType="textVisiblePassword|textNoSuggestions"
         android:ems="10"
         android:id="@+id/usernameInput"
-        android:hint="name (first, last)"
+        android:hint=" name (first, last)"
         android:typeface="normal"
-        android:background="@color/colorDeepOrange100"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:background="@drawable/forms"
+        android:layout_below="@+id/createAccount"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="40dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -70,13 +70,13 @@
         android:inputType="textEmailAddress"
         android:ems="10"
         android:id="@+id/emailInput"
-        android:hint="email"
+        android:hint=" email"
         android:layout_above="@+id/passwordSignIn"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="37dp"
         android:typeface="normal"
-        android:background="@color/colorDeepOrange100" />
+        android:background="@drawable/forms"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -84,13 +84,13 @@
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/passwordSignIn"
-        android:hint="password"
+        android:hint=" password"
         android:layout_above="@+id/password2Input"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="37dp"
         android:typeface="normal"
-        android:background="@color/colorDeepOrange100" />
+        android:background="@drawable/forms"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -98,24 +98,26 @@
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/password2Input"
-        android:hint="confirm password"
+        android:hint=" confirm password"
         android:layout_above="@+id/signInButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="37dp"
         android:typeface="normal"
-        android:background="@color/colorDeepOrange100" />
+        android:background="@drawable/forms"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="create"
+        android:text="Create"
+        android:textAllCaps="false"
         android:id="@+id/signInButton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="@color/colorDeepOrange500"
         android:textColor="#231F20"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:background="@drawable/big_button"/>
 
 
 </RelativeLayout>

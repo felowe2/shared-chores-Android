@@ -15,12 +15,12 @@
         android:text="Log in with Facebook"
         android:textAllCaps="false"
         android:id="@+id/logInFacebookButton"
-        android:background="#3b5998"
         android:textColor="#ffffff"
-        android:textSize="14sp"
+        android:textSize="17sp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="@drawable/facebook_button"/>
 
     <Button
         android:layout_width="match_parent"
@@ -30,11 +30,10 @@
         android:id="@+id/logInGmailButton"
         android:layout_below="@+id/logInFacebookButton"
         android:layout_centerHorizontal="true"
-        android:background="#db3236"
         android:layout_marginTop="10dp"
-        android:layout_alignParentStart="true"
         android:textColor="#ffffff"
-        android:textSize="14sp" />
+        android:textSize="17sp"
+        android:background="@drawable/google_button"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -42,13 +41,11 @@
         android:inputType="textVisiblePassword|textNoSuggestions"
         android:ems="10"
         android:id="@+id/emailSignIn"
-        android:hint="name (first, last)"
-        android:typeface="normal"
-        android:background="@color/colorDeepOrange100"
+        android:hint=" name (first, last)"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:text="email" />
+        android:background="@drawable/forms"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -56,24 +53,36 @@
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/passwordSignIn"
-        android:hint="password"
-        android:typeface="normal"
-        android:background="@color/colorDeepOrange100"
+        android:hint=" password"
         android:layout_below="@+id/emailSignIn"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="47dp" />
+        android:layout_marginTop="47dp"
+        android:background="@drawable/forms"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Log in"
+        android:text="Go!"
+        android:textAllCaps="false"
         android:id="@+id/signInButton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="@color/colorDeepOrange500"
         android:textColor="#231F20"
         android:allowUndo="true"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:background="@drawable/big_button"
+        android:textSize="17sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log In"
+        android:id="@+id/logIntextView"
+        android:layout_below="@+id/logInGmailButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:textStyle="bold"
+        android:textSize="30sp" />
 
 </RelativeLayout>

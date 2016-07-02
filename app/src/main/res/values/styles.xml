@@ -9,6 +9,9 @@
     </style>
     <style name="NoActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+
+        <!--<item name="colorDeepOrange500">@color/colorDeepOrange500</item>-->
+        <!--THIS LINE DOESN'T WORK -  ERROR: Error:(10, 5) No resource found that matches the given name: attr 'colorDeepOrange500'.-->
     </style>
 
 </resources>
