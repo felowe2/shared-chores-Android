@@ -27,7 +27,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_sign_in);
         ButterKnife.bind(this);
 
-        //FONTS EVERYTHING
+//FONTS EVERYTHING
         mSignInButton = (Button) findViewById(R.id.signInButton);
         Typeface boldieFont = Typeface.createFromAsset(getAssets(), "fonts/Boldie.ttf");
         mSignInButton.setTypeface(boldieFont);
@@ -42,10 +42,10 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
             String emailSignIn = mEmailSignIn.getText().toString();
             String passwordSignIn = mPasswordSignIn.getText().toString();
 
-            Intent goToUserPage = new Intent(this, UserPageActivity.class);
-            goToUserPage.putExtra("email", emailSignIn);
-            goToUserPage.putExtra("password", passwordSignIn);
-            startActivity(goToUserPage);
+            Intent goToWelcomePage = new Intent(this, WelcomePageActivity.class);
+            goToWelcomePage.putExtra("email", emailSignIn);
+            goToWelcomePage.putExtra("password", passwordSignIn);
+            startActivity(goToWelcomePage);
         }
     }
 }

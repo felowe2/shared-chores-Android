@@ -34,6 +34,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         mCreateAccount.setTypeface(boldieFont);
         mSubmitSignUpButton.setTypeface(boldieFont);
 // END OF FONTS
+
         mSubmitSignUpButton.setOnClickListener(this);
     }
 

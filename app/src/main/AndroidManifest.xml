@@ -20,10 +20,27 @@
         <activity android:name=".SignUpActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.sharedchores.MainActivity" />
+                android:value="com.epicodus.sharedchores.MainActivity">
+            </meta-data>
         </activity>
-        <activity android:name=".UserPageActivity" />
-        <activity android:name=".SignInActivity"></activity>
+        <activity android:name=".UserPageActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.sharedchores.MainActivity">
+            </meta-data>
+        </activity>
+        <activity android:name=".SignInActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.sharedchores.MainActivity">
+            </meta-data>
+        </activity>
+        <activity android:name=".WelcomePageActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.sharedchores.MainActivity">
+            </meta-data>
+        </activity>
     </application>
 
 </manifest>
