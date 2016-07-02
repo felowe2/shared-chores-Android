@@ -4,7 +4,7 @@
     <color name="colorBlueGrey200">#B0BEC5</color>
     <color name="colorBlueGrey500">#9E9E9E</color>
     <color name="colorBlueGrey800">#37474F</color>
-    <color name="colorDeepOrange100">#FFCCBC</color>
+    <color name="colorDeepOrange100">#ffccbc</color>
     <color name="colorDeepOrange500">#ff5722</color>
     <color name="colorDeepOrange800">#d84315</color>
     <color name="colorPrimary">#FF5722</color>
