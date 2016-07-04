@@ -13,7 +13,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class SignInActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.logIntextView) EditText mLogInTextView;
+    @Bind(R.id.logIntextView) TextView mLogInTextView;
     @Bind(R.id.emailSignIn) EditText mEmailSignIn;
     @Bind(R.id.passwordSignIn) EditText mPasswordSignIn;
     @Bind(R.id.signInButton) Button mSignInButton;

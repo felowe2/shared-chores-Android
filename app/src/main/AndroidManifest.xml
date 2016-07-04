@@ -5,7 +5,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Shared Chores"
+        android:label=" "
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
@@ -20,27 +20,27 @@
         <activity android:name=".SignUpActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.sharedchores.MainActivity">
-            </meta-data>
+                android:value="com.epicodus.sharedchores.MainActivity"></meta-data>
         </activity>
         <activity android:name=".UserPageActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.sharedchores.MainActivity">
-            </meta-data>
+                android:value="com.epicodus.sharedchores.MainActivity"></meta-data>
         </activity>
         <activity android:name=".SignInActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.sharedchores.MainActivity">
-            </meta-data>
+                android:value="com.epicodus.sharedchores.MainActivity"></meta-data>
         </activity>
         <activity android:name=".WelcomePageActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.sharedchores.MainActivity">
-            </meta-data>
+                android:value="com.epicodus.sharedchores.MainActivity"></meta-data>
         </activity>
+        <activity android:name=".BottomNavBarActivity"></activity>
     </application>
 
-</manifest>
+</manifest><!--
+android:label=" "
+    took app name out because I do not like the default font and I do not know how to change it yet
+-->

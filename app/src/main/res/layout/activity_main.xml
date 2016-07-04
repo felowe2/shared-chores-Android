@@ -57,7 +57,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sing Up"
+        android:text="Sign Up"
         android:textAllCaps="false"
         android:id="@+id/signUpButton"
         android:textSize="17sp"

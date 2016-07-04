@@ -57,12 +57,11 @@
         android:ems="10"
         android:id="@+id/usernameInput"
         android:hint=" name (first, last)"
-        android:typeface="normal"
         android:background="@drawable/forms"
         android:layout_below="@+id/createAccount"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="40dp" />
+        android:layout_marginTop="20dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -75,7 +74,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="37dp"
-        android:typeface="normal"
         android:background="@drawable/forms"/>
 
     <EditText
@@ -89,7 +87,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="37dp"
-        android:typeface="normal"
         android:background="@drawable/forms"/>
 
     <EditText
@@ -103,7 +100,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="37dp"
-        android:typeface="normal"
         android:background="@drawable/forms"/>
 
     <Button

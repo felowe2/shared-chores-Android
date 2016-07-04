@@ -13,9 +13,37 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button"
+        android:text="create a group"
+        android:id="@+id/createGroupButton"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/groupName"
+        android:layout_below="@+id/createGroupButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:hint="group name" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/saveGroupButton"
+        android:layout_below="@+id/groupName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="create" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/groupListView"
+        android:layout_below="@+id/saveGroupButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>
