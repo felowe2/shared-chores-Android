@@ -15,8 +15,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class UserPageActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.createGroupButton)
-    Button mCreateGroupButton;
+    @Bind(R.id.createGroupButton) Button mCreateGroupButton;
     @Bind(R.id.groupName)
     EditText mGroupName;
     @Bind(R.id.saveGroupButton)
@@ -25,6 +24,7 @@ public class UserPageActivity extends AppCompatActivity implements View.OnClickL
     ListView mGroupListView;
     private String[] groups = new String[]{"Group 1", "Group 2",
             "Group 3", "Group 4", "Group 5"};
+    @Bind(R.id.clickableGroupName) Button mClickableGroupName;
 
 
     @Override
@@ -42,11 +42,14 @@ public class UserPageActivity extends AppCompatActivity implements View.OnClickL
 
         mCreateGroupButton.setOnClickListener(this);
         mSaveGroupButton.setOnClickListener(this);
+
         mGroupName.setVisibility(View.GONE);
         mSaveGroupButton.setVisibility(View.GONE);
 
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, groups);
         mGroupListView.setAdapter(adapter);
+
+        mClickableGroupName.setOnClickListener(this);
 
     }
 
@@ -58,15 +61,18 @@ public class UserPageActivity extends AppCompatActivity implements View.OnClickL
         if (v == mCreateGroupButton) {
             String groupNameInput = mGroupName.getText().toString();
 //            mGroupListView.setText("groupNameInput");
-//
-//            Intent showGroupName = new Intent(this, RestaurantsActivity.class);
-//            showGroupName.putExtra("group name", showGroupName);
-//            startActivity(showGroupName);
+
+            Intent goToAddFriendsPage = new Intent(this, AddFriendsActivity.class);
+            goToAddFriendsPage.putExtra("groupName", groupNameInput);
+            startActivity(goToAddFriendsPage);
 //
 //            WANT TO SHOW THE GROUP NAME IN THIS ACTIVITY
 
-        }
-        if (v == mSaveGroupButton) {
+        } if (v == mSaveGroupButton) {
+
+
+        } if (v == mClickableGroupName){
+
 
 
         }
