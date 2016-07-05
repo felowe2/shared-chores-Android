@@ -1,0 +1,41 @@
+# Week 1: Android - User Interface Basics Independent Project
+
+#### Shared Chores, 07/01/2016.
+
+#### By Fernanda Lowe
+
+## Description
+
+Shared Chores is a mobile application for users to share household chores with the people they live with, or simple for anyone who wants to track any kind of activity.
+
+With this application users will be able to:
+ 1. add, update, delete and list bands
+ 2. add venues
+ 3. add venues to a band to show where they have played;
+ 4. see all of the venues a band has played;
+
+## Setup/Installation Requirements
+
+* Clone this project into Android Studio
+* CREATE TABLE bands (id serial PRIMARY KEY, name varchar);
+
+
+## Known Bugs
+
+None;
+
+## Support and contact details
+
+If while using this application you run into any issues or have questions, ideas, concerns, or would like to make a contribution to the code, please contact me at fe_lowe@hotmail.com
+
+## Technologies Used
+
+Android Studio, Java.
+
+### License
+
+Application can be used under MIT licenses.
+
+
+
+Copyright (c) 2016 Fernanda Lowe at Epicodus.
