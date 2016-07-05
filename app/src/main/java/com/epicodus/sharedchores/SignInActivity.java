@@ -26,35 +26,35 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class SignInActivity extends AppCompatActivity implements View.OnClickListener {
-    //    LOG IN WITH FACEBOOK
-    private CallbackManager callbackManager;
-    private TextView logInWithFacebookTextView;
-
-    private AccessTokenTracker accessTokenTracker;
-    private ProfileTracker profileTracker;
-
-    private FacebookCallback<LoginResult> callback = new FacebookCallback<LoginResult>() {
-        @Override
-        public void onSuccess(LoginResult loginResult) {
-            AccessToken accessToken = loginResult.getAccessToken();
-            Profile profile = Profile.getCurrentProfile();
-            displayMessage(profile);
-        }
-
-        @Override
-        public void onCancel() {
-
-        }
-
-        @Override
-        public void onError(FacebookException e) {
-
-        }
-    };
-
-    public SignInActivity() {
-
-    }
+//    LOG IN WITH FACEBOOK
+//    private CallbackManager callbackManager;
+//    private TextView logInWithFacebookTextView;
+//
+//    private AccessTokenTracker accessTokenTracker;
+//    private ProfileTracker profileTracker;
+//
+//    private FacebookCallback<LoginResult> callback = new FacebookCallback<LoginResult>() {
+//        @Override
+//        public void onSuccess(LoginResult loginResult) {
+//            AccessToken accessToken = loginResult.getAccessToken();
+//            Profile profile = Profile.getCurrentProfile();
+//            displayMessage(profile);
+//        }
+//
+//        @Override
+//        public void onCancel() {
+//
+//        }
+//
+//        @Override
+//        public void onError(FacebookException e) {
+//
+//        }
+//    };
+//
+//    public SignInActivity() {
+//
+//    }
 
 //   LOG IN WITH FACEBOOK END
 
@@ -84,74 +84,74 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         mSignInButton.setOnClickListener(this);
 
 //MORE LOGIN WITH FACEBOOK STUFF
-        callbackManager = CallbackManager.Factory.create();
+//        callbackManager = CallbackManager.Factory.create();
+//
+//        accessTokenTracker = new AccessTokenTracker() {
+//            @Override
+//            protected void onCurrentAccessTokenChanged(AccessToken oldToken, AccessToken newToken) {
+//
+//            }
+//        };
+//
+//        profileTracker = new ProfileTracker() {
+//            @Override
+//            protected void onCurrentProfileChanged(Profile oldProfile, Profile newProfile) {
+//                displayMessage(newProfile);
+//            }
+//        };
+//
+//        accessTokenTracker.startTracking();
+//        profileTracker.startTracking();
+//    }
+//
+//    @Override
+//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+//                             Bundle savedInstanceState) {
+//        return inflater.inflate(R.layout.activity_sign_in, container, false);
+//    }
+//
+//    @Override
+//    public void onViewCreated(View view, Bundle savedInstanceState) {
+//        super.onViewCreated(view, savedInstanceState);
+//
+//        LoginButton loginButton = (LoginButton) view.findViewById(R.id.facebookLoginButton);
+//        mLogInWithFacebookTextView = (TextView) view.findViewById(R.id.logInWithFacebookTextView);
+//
+//        loginButton.setReadPermissions("user_friends");
+//        loginButton.setFragment(this);
+//        loginButton.registerCallback(callbackManager, callback);
+//
+//    }
+//
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        callbackManager.onActivityResult(requestCode, resultCode, data);
+//
+//    }
+//
+//    private void displayMessage(Profile profile) {
+//        if (profile != null) {
+//            mLogInWithFacebookTextView.setText(profile.getName());
+//        }
+//    }
+//
+//    @Override
+//    public void onStop() {
+//        super.onStop();
+//        accessTokenTracker.stopTracking();
+//        profileTracker.stopTracking();
+//    }
+//
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        Profile profile = Profile.getCurrentProfile();
+//        displayMessage(profile);
+//    }
 
-        accessTokenTracker = new AccessTokenTracker() {
-            @Override
-            protected void onCurrentAccessTokenChanged(AccessToken oldToken, AccessToken newToken) {
-
-            }
-        };
-
-        profileTracker = new ProfileTracker() {
-            @Override
-            protected void onCurrentProfileChanged(Profile oldProfile, Profile newProfile) {
-                displayMessage(newProfile);
-            }
-        };
-
-        accessTokenTracker.startTracking();
-        profileTracker.startTracking();
+        //   LOG IN WITH FACEBOOK END
     }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.activity_sign_in, container, false);
-    }
-
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        LoginButton loginButton = (LoginButton) view.findViewById(R.id.facebookLoginButton);
-        mLogInWithFacebookTextView = (TextView) view.findViewById(R.id.logInWithFacebookTextView);
-
-        loginButton.setReadPermissions("user_friends");
-        loginButton.setFragment(this);
-        loginButton.registerCallback(callbackManager, callback);
-
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode, resultCode, data);
-
-    }
-
-    private void displayMessage(Profile profile) {
-        if (profile != null) {
-            mLogInWithFacebookTextView.setText(profile.getName());
-        }
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        accessTokenTracker.stopTracking();
-        profileTracker.stopTracking();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        Profile profile = Profile.getCurrentProfile();
-        displayMessage(profile);
-    }
-
-    //   LOG IN WITH FACEBOOK END
-
     @Override
     public void onClick(View v) {
         if (v == mSignInButton) {

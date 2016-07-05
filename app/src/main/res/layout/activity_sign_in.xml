@@ -82,7 +82,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text="placeholder"
         android:id="@+id/logInWithFacebookTextView"
         android:layout_below="@+id/facebookLoginButton"
         android:layout_centerHorizontal="true"
