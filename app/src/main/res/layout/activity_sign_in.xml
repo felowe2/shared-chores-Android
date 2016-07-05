@@ -9,18 +9,32 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.epicodus.sharedchores.SignInActivity"
     android:background="@color/background_material_light">
-    <Button
-        android:layout_width="match_parent"
+
+    <!--<Button-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Log in with Facebook"-->
+        <!--android:textAllCaps="false"-->
+        <!--android:id="@+id/logInFacebookButton"-->
+        <!--android:textColor="#ffffff"-->
+        <!--android:textSize="17sp"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:background="@drawable/facebook_button"/>-->
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Log in with Facebook"
-        android:textAllCaps="false"
-        android:id="@+id/logInFacebookButton"
-        android:textColor="#ffffff"
-        android:textSize="17sp"
-        android:layout_alignParentTop="true"
+        android:text="New Text"
+        android:id="@+id/logInWithFacebookTextView"
+        android:layout_below="@+id/logInFacebookButton"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@drawable/facebook_button"/>
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="match_parent"
@@ -28,12 +42,12 @@
         android:text="Log in with Gmail"
         android:textAllCaps="false"
         android:id="@+id/logInGmailButton"
-        android:layout_below="@+id/logInFacebookButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="74dp"
         android:textColor="#ffffff"
         android:textSize="17sp"
-        android:background="@drawable/google_button"/>
+        android:background="@drawable/google_button"
+        android:layout_below="@+id/logInFacebookButton"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="match_parent"
@@ -54,11 +68,11 @@
         android:ems="10"
         android:id="@+id/passwordSignIn"
         android:hint=" password"
-        android:layout_below="@+id/emailSignIn"
+        android:background="@drawable/forms"
+        android:layout_above="@+id/signInButton"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="47dp"
-        android:background="@drawable/forms"/>
+        android:layout_marginBottom="47dp" />
 
     <Button
         android:layout_width="match_parent"
@@ -84,5 +98,7 @@
         android:layout_marginTop="50dp"
         android:textStyle="bold"
         android:textSize="30sp" />
+
+
 
 </RelativeLayout>

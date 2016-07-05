@@ -22,8 +22,7 @@ public class UserPageActivity extends AppCompatActivity implements View.OnClickL
     Button mSaveGroupButton;
     @Bind(R.id.groupListView)
     ListView mGroupListView;
-    private String[] groups = new String[]{"Group 1", "Group 2",
-            "Group 3", "Group 4", "Group 5"};
+    private String[] groups = new String[]{"Group 1", "Group 2"};
     @Bind(R.id.clickableGroupName) Button mClickableGroupName;
 
 
@@ -62,11 +61,13 @@ public class UserPageActivity extends AppCompatActivity implements View.OnClickL
             String groupNameInput = mGroupName.getText().toString();
 //            mGroupListView.setText("groupNameInput");
 
+//            WANT TO SHOW THE GROUP NAME/USER INPUT IN THIS ACTIVITY
+
             Intent goToAddFriendsPage = new Intent(this, AddFriendsActivity.class);
             goToAddFriendsPage.putExtra("groupName", groupNameInput);
             startActivity(goToAddFriendsPage);
 //
-//            WANT TO SHOW THE GROUP NAME IN THIS ACTIVITY
+//
 
         } if (v == mSaveGroupButton) {
 

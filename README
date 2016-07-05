@@ -14,11 +14,11 @@ Setup/Installation Requirements
 1. Check out project from version control
 2. Select GitHub on drop down menu
 3. Insert your GitHub login credentials
-* Hit cancel if you are prompt to create a master password
+* Hit cancel if prompted to create a master password
 4. Paste the repository URL
-* Select parent directory for where you want to store project
+* Select parent directory for where project should be stored
 5. Clone
-* Add root if prompt to on top right corner
+* Add root if popup message appears on top right corner
 6. Run app (^R)
 7. Select Nexus 6 API 23 emulator
 8. Navigate through the app.
