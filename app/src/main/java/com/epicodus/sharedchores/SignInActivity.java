@@ -62,7 +62,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     @Bind(R.id.passwordSignIn) EditText mPasswordSignIn;
     @Bind(R.id.signInButton) Button mSignInButton;
     @Bind(R.id.logInWithFacebookTextView) TextView mLogInWithFacebookTextView;
-    @Bind(R.id.facebookLoginButton) Button mFacebookLoginButton;
+//    @Bind(R.id.facebookLoginButton) Button mFacebookLoginButton;
 
 
     @Override

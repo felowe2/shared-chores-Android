@@ -10,22 +10,22 @@
     tools:context="com.epicodus.sharedchores.SignInActivity"
     android:background="@color/background_material_light">
 
-    <!--<Button-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="Log in with Facebook"-->
-        <!--android:textAllCaps="false"-->
-        <!--android:id="@+id/logInFacebookButton"-->
-        <!--android:textColor="#ffffff"-->
-        <!--android:textSize="17sp"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_alignParentStart="true"-->
-        <!--android:background="@drawable/facebook_button"/>-->
-    <com.facebook.login.widget.LoginButton
-        android:id="@+id/facebookLoginButton"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Log in with Facebook"
+        android:textAllCaps="false"
+        android:id="@+id/logInFacebookButton"
+        android:textColor="#ffffff"
+        android:textSize="17sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/facebook_button"/>
+    <!--<com.facebook.login.widget.LoginButton-->
+        <!--android:id="@+id/facebookLoginButton"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content" />-->
 
     <Button
         android:layout_width="match_parent"
@@ -33,7 +33,7 @@
         android:text="Log in with Gmail"
         android:textAllCaps="false"
         android:id="@+id/logInGmailButton"
-        android:layout_marginTop="74dp"
+        android:layout_marginTop="7dp"
         android:textColor="#ffffff"
         android:textSize="17sp"
         android:background="@drawable/google_button"
@@ -63,7 +63,7 @@
         android:layout_above="@+id/signInButton"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="47dp" />
+        android:layout_marginBottom="140dp" />
 
     <Button
         android:layout_width="match_parent"
@@ -84,9 +84,9 @@
         android:layout_height="wrap_content"
         android:text="placeholder"
         android:id="@+id/logInWithFacebookTextView"
-        android:layout_below="@+id/facebookLoginButton"
         android:layout_centerHorizontal="true"
         android:textSize="20sp" />
 
 
 </RelativeLayout>
+    <!--android:layout_below="@+id/facebookLoginButton"-->

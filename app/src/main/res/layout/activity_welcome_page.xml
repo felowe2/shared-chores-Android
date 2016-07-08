@@ -1,61 +1,66 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context="com.epicodus.sharedchores.WelcomePageActivity">
+
+<LinearLayout
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.epicodus.sharedchores.WelcomePageActivity"
     android:background="@color/background_material_light">
 
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="180dp"
         android:id="@+id/welcomeTextView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:textStyle="bold"
-        android:typeface="sans"
-        android:textSize="35sp"
-        android:textAlignment="center" />
+        android:textSize="30sp"
+        android:scaleType="centerCrop"
+        android:textAlignment="center"
+        android:paddingTop="30dp" />
 
     <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="ABOUT US"
+    android:id="@+id/aboutUsTitle"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:textStyle="bold"
+    android:typeface="sans"
+    android:textSize="35sp"
+    android:textAlignment="center" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/aboutUsTextView"
-        android:layout_marginTop="141dp"
-        android:lineSpacingExtra="7dp"
-        android:layout_below="@+id/welcomeTextView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/aboutUsTitle"
-        android:text="ABOUT US"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        android:layout_below="@+id/welcomeTextView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="47dp"
-        android:textStyle="bold"
-        android:textColor="#231F20" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Let&apos;s get started"
-        android:id="@+id/getStartedButton"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+        android:textSize="15sp"
+        android:lineSpacingExtra="10dp"
         android:textColor="#231F20"
-        android:textStyle="bold"
-        android:background="@drawable/big_button"/>
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="26dp" />
 
-</RelativeLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Let&apos;s get started"
+            android:id="@+id/getStartedButton"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/big_button"
+            android:textSize="15sp" />
+    </RelativeLayout>
+</LinearLayout>
+</FrameLayout>
+    <!--android:text="Welcome to Shared Chores \n FERNANDA \n we are happy you're here!"-->
