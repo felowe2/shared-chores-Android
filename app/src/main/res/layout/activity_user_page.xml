@@ -18,7 +18,7 @@ tools:context="com.epicodus.sharedchores.WelcomePageActivity">
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="create a group"
-    android:id="@+id/createGroupHeader"
+    android:id="@+id/createChoreHeader"
     android:layout_alignParentTop="true"
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="true"
@@ -27,8 +27,8 @@ tools:context="com.epicodus.sharedchores.WelcomePageActivity">
     <EditText
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:id="@+id/choreInputField"
-    android:layout_below="@+id/createGroupHeader"
+    android:id="@+id/groupNameInputField"
+    android:layout_below="@+id/createChoreHeader"
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="true"
     android:hint="group name" />
@@ -38,7 +38,7 @@ tools:context="com.epicodus.sharedchores.WelcomePageActivity">
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:id="@+id/createGroupButton"
-    android:layout_below="@+id/choreInputField"
+    android:layout_below="@+id/groupNameInputField"
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="true"
     android:text="create" />
@@ -61,19 +61,10 @@ tools:context="com.epicodus.sharedchores.WelcomePageActivity">
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ListView
+        <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="placeholder"
-            android:lineSpacingExtra="10dp"
-            android:textColor="#231F20"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="26dp"
-            android:id="@+id/groupListView"/>
+            android:layout_height="match_parent"
+            android:id="@+id/recyclerView" />
 
     </RelativeLayout>
 </LinearLayout>

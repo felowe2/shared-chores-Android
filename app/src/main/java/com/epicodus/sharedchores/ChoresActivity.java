@@ -16,11 +16,11 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class ChoresActivity extends AppCompatActivity {
-    private ListView mGroupListView;
-    @Bind(R.id.createGroupHeader) TextView mCreateGroupHeader;
-    @Bind(R.id.choreInputField) EditText mGroupNameInputField;
-    @Bind(R.id.createGroupButton) Button mCreateGroupButton;
-    @Bind(R.id.groupHeader) TextView mGroupHeader;
+    private ListView mChoreListView;
+    @Bind(R.id.createChoreHeader) TextView mCreateChoreHeader;
+    @Bind(R.id.groupNameInputField) EditText mChoreInputField;
+    @Bind(R.id.createChoreButton) Button mCreateChoreButton;
+    @Bind(R.id.choreHeader) TextView mChoreHeader;
 
 
     private String[] chores = new String[]{"Mi Mero Mole", "Mother's Bistro",
@@ -37,26 +37,26 @@ public class ChoresActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-        mGroupListView = (ListView) findViewById(R.id.groupListView);
+        mChoreListView = (ListView) findViewById(R.id.groupListView);
 
 //FONTS EVERYTHING
 
         Typeface boldieFont = Typeface.createFromAsset(getAssets(), "fonts/Boldie.ttf");
-        mCreateGroupHeader.setTypeface(boldieFont);
-        mCreateGroupButton.setTypeface(boldieFont);
-        mGroupHeader.setTypeface(boldieFont);
+        mCreateChoreHeader.setTypeface(boldieFont);
+        mCreateChoreButton.setTypeface(boldieFont);
+        mChoreHeader.setTypeface(boldieFont);
 // END OF FONTS
 
 
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, chores);
-        mGroupListView.setAdapter(adapter);
+        mChoreListView.setAdapter(adapter);
 
-        mGroupListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mChoreListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String chore = ((TextView) view).getText().toString();
-                Intent intent = new Intent(ChoresActivity.this, ChoresActivity.class);
+                Intent intent = new Intent(ChoresActivity.this, AddFriendsActivity.class);
                 startActivity(intent);
 
             }

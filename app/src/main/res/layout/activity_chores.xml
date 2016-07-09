@@ -18,7 +18,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="create chore"
-                android:id="@+id/createGroupHeader"
+                android:id="@+id/createChoreHeader"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
@@ -27,8 +27,8 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/choreInputField"
-                android:layout_below="@+id/createGroupHeader"
+                android:id="@+id/groupNameInputField"
+                android:layout_below="@+id/createChoreHeader"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:hint="chore" />
@@ -38,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/createChoreButton"
-                android:layout_below="@+id/choreInputField"
+                android:layout_below="@+id/groupNameInputField"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:text="create" />
@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Chores"
-            android:id="@+id/choresHeader"
+            android:id="@+id/choreHeader"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:textStyle="bold"
