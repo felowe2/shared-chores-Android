@@ -13,9 +13,6 @@ import com.epicodus.sharedchores.R;
 import java.security.acl.Group;
 import java.util.ArrayList;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-
 /**
  * Created by Guest on 7/8/16.
  */

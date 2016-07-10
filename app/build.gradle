@@ -61,4 +61,5 @@ dependencies {
     apt 'org.parceler:parceler:1.1.1'
     compile 'com.facebook.android:facebook-android-sdk:4.+'
 
+    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
 }

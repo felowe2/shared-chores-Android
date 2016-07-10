@@ -43,7 +43,7 @@ public class WelcomePageActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View v) {
         if (v == mGetStartedButton) {
-            Intent goToUserPage = new Intent(WelcomePageActivity.this, UserPageActivity.class);
+            Intent goToUserPage = new Intent(WelcomePageActivity.this, CreateGroupActivity.class);
             startActivity(goToUserPage);
         }
     }

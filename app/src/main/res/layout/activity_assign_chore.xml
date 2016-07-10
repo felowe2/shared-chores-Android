@@ -1,0 +1,141 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.epicodus.sharedchores.AssignChoreActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_material_light"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:weightSum="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="254dp">
+
+            <TextView
+                android:id="@+id/assignChoreHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/choreDoerInputField"
+                android:layout_centerHorizontal="true"
+                android:height="60dp"
+                android:text="assign a chore to (userClickedOn)"
+                android:textIsSelectable="false"
+                android:textSize="25sp" />
+
+            <EditText
+                android:id="@+id/choreDoerInputField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/choreDescriptionInputField"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/forms"
+                android:hint="doer" />
+
+            <EditText
+                android:id="@+id/choreDescriptionInputField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/choreDueDateInputField"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/forms"
+                android:hint="chore description" />
+
+            <EditText
+                android:id="@+id/choreDueDateInputField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/addChoreButton"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/forms"
+                android:hint="chore due date" />
+
+            <Button
+                android:id="@+id/addChoreButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:singleLine="true"
+                android:text="add" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/choreSummaryHeader"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="0.35"
+            android:text="\n Chore Summary"
+            android:textAlignment="center"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="176dp">
+
+            <TextView
+                android:id="@+id/choreDoerTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/forms"
+                android:hint="chore doer placeholder"
+                android:lineSpacingExtra="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textColor="#231F20" />
+
+            <TextView
+                android:id="@+id/choreDescriptionTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/choreDoerTextView"
+                android:background="@drawable/forms"
+                android:hint="chore description placeholder"
+                android:lineSpacingExtra="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textColor="#231F20" />
+
+            <TextView
+                android:id="@+id/choreDueDateTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/choreDescriptionTextView"
+                android:background="@drawable/forms"
+                android:hint="chore due date placeholder"
+                android:lineSpacingExtra="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textColor="#231F20" />
+
+            <Button
+                android:id="@+id/assignChoreButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:singleLine="true"
+                android:text="assign" />
+
+        </RelativeLayout>
+    </LinearLayout>
+</FrameLayout>

@@ -61,8 +61,6 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     @Bind(R.id.emailSignIn) EditText mEmailSignIn;
     @Bind(R.id.passwordSignIn) EditText mPasswordSignIn;
     @Bind(R.id.signInButton) Button mSignInButton;
-    @Bind(R.id.logInWithFacebookTextView) TextView mLogInWithFacebookTextView;
-//    @Bind(R.id.facebookLoginButton) Button mFacebookLoginButton;
 
 
     @Override
@@ -158,7 +156,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
             String emailSignIn = mEmailSignIn.getText().toString();
             String passwordSignIn = mPasswordSignIn.getText().toString();
 
-            Intent goToUserPage = new Intent(this, UserPageActivity.class);
+            Intent goToUserPage = new Intent(this, CreateGroupActivity.class);
             goToUserPage.putExtra("email", emailSignIn);
             goToUserPage.putExtra("password", passwordSignIn);
             startActivity(goToUserPage);

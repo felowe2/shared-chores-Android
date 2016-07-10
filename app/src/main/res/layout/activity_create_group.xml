@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.epicodus.sharedchores.WelcomePageActivity">
+    tools:context="com.epicodus.sharedchores.CreateGroupActivity">
 
     <LinearLayout
         android:orientation="vertical"
@@ -17,39 +17,36 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="create chore"
-                android:id="@+id/createChoreHeader"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:textSize="30sp" />
+                android:text="create group"
+                android:id="@+id/createGroupHeader"
+                android:textSize="30sp"
+                android:layout_above="@+id/groupNameInputField"
+                android:layout_centerHorizontal="true" />
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/groupNameInputField"
-                android:layout_below="@+id/createChoreHeader"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:hint="chore" />
+                android:hint="group name"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true" />
 
             <Button
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/createChoreButton"
+                android:id="@+id/createGroupButton"
+                android:text="create"
                 android:layout_below="@+id/groupNameInputField"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:text="create" />
+                android:layout_centerHorizontal="true" />
 
         </RelativeLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Chores"
-            android:id="@+id/choreHeader"
+            android:text="Groups"
+            android:id="@+id/groupHeader"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:textStyle="bold"
@@ -63,18 +60,23 @@
 
             <ListView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="placeholder"
-                android:lineSpacingExtra="10dp"
-                android:textColor="#231F20"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="26dp"
-                android:id="@+id/groupListView"/>
+                android:layout_height="match_parent"
+                android:id="@+id/groupListView" />
 
+            <TableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/bottomBar"
+                style="@drawable/bottom_nav_bar"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="?attr/colorPrimary"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
         </RelativeLayout>
+
     </LinearLayout>
 </FrameLayout>
+

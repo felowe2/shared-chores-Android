@@ -1,73 +1,96 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--tools:context="com.epicodus.sharedchores.UserPageActivity">-->
+
+    <!---->
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="180dp">-->
+
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="My chores list"-->
+                <!--android:id="@+id/userChoreListHeader"-->
+                <!--android:textStyle="bold"-->
+                <!--android:typeface="sans"-->
+                <!--android:textSize="35sp"-->
+                <!--android:textAlignment="center"-->
+                <!--android:layout_alignParentTop="true"-->
+                <!--android:layout_alignParentLeft="true"-->
+                <!--android:layout_alignParentStart="true" />-->
+
+        <!--</RelativeLayout>-->
+
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
+
+            <!--<ListView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:id="@+id/peopleAddedListView"-->
+                <!--android:layout_alignParentBottom="true"-->
+                <!--android:layout_alignParentLeft="true"-->
+                <!--android:layout_alignParentStart="true"-->
+                <!--android:layout_marginBottom="68dp" />-->
+
+            <!--<Button-->
+                <!--style="?android:attr/buttonStyleSmall"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:id="@+id/userPageCreateChoreButton"-->
+                <!--android:text="add a chore"-->
+                <!--android:layout_alignParentBottom="true"-->
+                <!--android:layout_centerHorizontal="true" />-->
+
+        <!--</RelativeLayout>-->
+    <!--</LinearLayout>-->
+<!--</FrameLayout>-->
+    <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
+android:layout_width="wrap_content"
 android:layout_height="match_parent"
-tools:context="com.epicodus.sharedchores.WelcomePageActivity">
-
-<LinearLayout
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background_material_light">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="180dp">
-
-    <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="create a group"
-    android:id="@+id/createChoreHeader"
-    android:layout_alignParentTop="true"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true"
-        android:textSize="30sp" />
-
-    <EditText
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/groupNameInputField"
-    android:layout_below="@+id/createChoreHeader"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true"
-    android:hint="group name" />
-
-    <Button
-    style="?android:attr/buttonStyleSmall"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/createGroupButton"
-    android:layout_below="@+id/groupNameInputField"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true"
-    android:text="create" />
-
-    </RelativeLayout>
-
+android:paddingBottom="@dimen/activity_vertical_margin"
+android:paddingLeft="@dimen/activity_horizontal_margin"
+android:paddingRight="@dimen/activity_horizontal_margin"
+android:paddingTop="@dimen/activity_vertical_margin"
+tools:context="com.epicodus.sharedchores.UserPageActivity"
+android:background="@color/background_material_light">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Groups"
-        android:id="@+id/groupHeader"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/sucessMessageTextView"
+        android:text=" My Chore List"
+        android:textAlignment="center"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textStyle="bold"
-        android:typeface="sans"
-        android:textSize="35sp"
-        android:textAlignment="center" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="See my profile"
+    android:id="@+id/backToUserMainPageButton"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true"
+    android:textColor="#231F20"
+    android:textStyle="bold"
+    android:textSize="17sp"
+    android:background="@drawable/big_button"/>
 
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/groupListView" />
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_below="@+id/sucessMessageTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/backToUserMainPageButton" />
 
-    </RelativeLayout>
-</LinearLayout>
-</FrameLayout>
-    <!--android:id="@+id/groupNameTextView"-->
-    <!--android:clickable="true"-->
+
+</RelativeLayout>
