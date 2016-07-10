@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -18,8 +17,8 @@ public class SuccessPageActivity extends AppCompatActivity implements View.OnCli
     TextView mSuccessMessageTextView;
     @Bind(R.id.addMorePeopleButton)
     Button mAddMorePeopleButton;
-    @Bind(R.id.backToUserMainPageButton)
-    Button mBackToUserMainPageButton;
+    @Bind(R.id.backToUserChoreListButton)
+    Button mBackToUserChoreListButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +31,7 @@ public class SuccessPageActivity extends AppCompatActivity implements View.OnCli
 
 
         mAddMorePeopleButton.setOnClickListener(this);
-        mBackToUserMainPageButton.setOnClickListener(this);
+        mBackToUserChoreListButton.setOnClickListener(this);
 
     }
 
@@ -42,8 +41,8 @@ public class SuccessPageActivity extends AppCompatActivity implements View.OnCli
             Intent goToAssignChoreActivity = new Intent(SuccessPageActivity.this, AssignChoreActivity.class);
             startActivity(goToAssignChoreActivity);
         }
-        if (v == mBackToUserMainPageButton) {
-            Intent goToUserPageActivity = new Intent(SuccessPageActivity.this, UserPageActivity.class);
+        if (v == mBackToUserChoreListButton) {
+            Intent goToUserPageActivity = new Intent(SuccessPageActivity.this, UserChoreListActivity.class);
             startActivity(goToUserPageActivity);
         }
     }
