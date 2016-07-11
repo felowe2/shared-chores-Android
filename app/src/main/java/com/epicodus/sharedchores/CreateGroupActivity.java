@@ -58,6 +58,7 @@ public class CreateGroupActivity extends AppCompatActivity {
 
                 String groupInput = mGroupNameInputField.getText().toString();
 
+
                 if (groupList.contains(groupInput)) {
                     Toast.makeText(getBaseContext(), "Group name already exist", Toast.LENGTH_LONG).show();
                 } else if (groupInput == null || groupInput.trim().equals(" ")) {
@@ -70,15 +71,15 @@ public class CreateGroupActivity extends AppCompatActivity {
                 }
             }
 
-            // TODO: 7/9/16 this does not work. Click on item won't take user to AddPeopleActivity (where people are added to the group name clicked on)
+        });
+
+        mGroupListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String groupInput = ((TextView) view).getText().toString();
                 Intent intent = new Intent(CreateGroupActivity.this, AddPeopleActivity.class);
                 startActivity(intent);
             }
-
         });
-
     }
 }
 

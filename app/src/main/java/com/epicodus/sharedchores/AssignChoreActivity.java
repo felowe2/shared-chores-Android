@@ -16,29 +16,20 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
 
 public class AssignChoreActivity extends AppCompatActivity {
 
-    @Bind(R.id.assignChoreHeader)
-    TextView mAssignShoreChoreHeader;
-    @Bind(R.id.choreDoerInputField)
-    EditText mChoreDoerInputField;
-    @Bind(R.id.choreDescriptionInputField)
-    EditText mChoreDescriptionInputField;
-    @Bind(R.id.choreDueDateInputField)
-    EditText mChoreDueDateInputField;
-    @Bind(R.id.addChoreButton)
-    Button mAddChoreButton;
-    @Bind(R.id.choreSummaryHeader)
-    TextView mChoreHeader;
-    @Bind(R.id.choreDoerTextView)
-    EditText mChoreDoerTextView;
-    @Bind(R.id.choreDescriptionTextView)
-    EditText mChoreDescriptionTextView;
-    @Bind(R.id.choreDueDateTextView)
-    EditText mChoreDueDateTextView;
-    @Bind(R.id.assignChoreButton)
-    Button mAssignChoreButton;
+    @Bind(R.id.assignChoreHeader) TextView mAssignShoreChoreHeader;
+    @Bind(R.id.choreDoerInputField) EditText mChoreDoerInputField;
+    @Bind(R.id.choreDescriptionInputField) EditText mChoreDescriptionInputField;
+    @Bind(R.id.choreDueDateInputField) EditText mChoreDueDateInputField;
+    @Bind(R.id.addChoreButton) Button mAddChoreButton;
+    @Bind(R.id.choreSummaryHeader) TextView mChoreHeader;
+    @Bind(R.id.choreDoerTextView) TextView mChoreDoerTextView;
+    @Bind(R.id.choreDescriptionTextView) TextView mChoreDescriptionTextView;
+    @Bind(R.id.choreDueDateTextView) TextView mChoreDueDateTextView;
+    @Bind(R.id.assignChoreButton) Button mAssignChoreButton;
 
     ArrayList<String> userChore = new ArrayList<String>();
 
@@ -46,6 +37,9 @@ public class AssignChoreActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assign_chore);
+
+        ButterKnife.bind(this);
+
 
 //FONTS EVERYTHING
 
@@ -62,31 +56,30 @@ public class AssignChoreActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 String choreDoerInput = mChoreDoerInputField.getText().toString();
-                Intent intent = new Intent(AssignChoreActivity.this, SuccessPageActivity.class);
-                intent.putExtra("doer_name", choreDoerInput);
+//                Intent intent = new Intent(AssignChoreActivity.this, SuccessPageActivity.class);
+//                intent.putExtra("doer_name", choreDoerInput);
 
                 String choreDescriptionInput = mChoreDescriptionInputField.getText().toString();
                 String choreDueDateInput = mChoreDueDateInputField.getText().toString();
-                userChore.add(choreDoerInput);
 
+                userChore.add(choreDoerInput);
                 userChore.add(choreDescriptionInput);
                 userChore.add(choreDueDateInput);
 
-                mChoreDoerTextView.setText(choreDoerInput);
+//                mChoreDoerTextView.setText(choreDoerInput);
                 mChoreDescriptionTextView.setText(choreDescriptionInput);
                 mChoreDueDateTextView.setText(choreDueDateInput);
 
             }
         });
 
-// TODO: 7/10/16 When user clicks on "Assign" button it goes to the SuccessPageActivity
-        mAssignChoreButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                if (v == mAssignChoreButton) {
-                    Intent goToSuccessPage = new Intent(AssignChoreActivity.this, SuccessPageActivity.class);
-                    startActivity(goToSuccessPage);
-                }
-            }
-        });
+//        mAssignChoreButton.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                if (v == mAssignChoreButton) {
+//                    Intent goToSuccessPage = new Intent(AssignChoreActivity.this, SuccessPageActivity.class);
+//                    startActivity(goToSuccessPage);
+//                }
+//            }
+//        });
     }
 }

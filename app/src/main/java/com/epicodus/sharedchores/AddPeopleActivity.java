@@ -72,13 +72,14 @@ public class AddPeopleActivity extends AppCompatActivity {
                 }
             }
 
-            // TODO: 7/9/16 this does not work. Click on item won't take user to ChoresActivity :(
+        });
+
+        mPeopleAddedListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String groupInput = ((TextView) view).getText().toString();
-                Intent intent = new Intent(AddPeopleActivity.this, ChoresActivity.class);
+                Intent intent = new Intent(AddPeopleActivity.this, AssignChoreActivity.class);
                 startActivity(intent);
             }
-
         });
 
     }
