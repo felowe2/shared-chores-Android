@@ -26,7 +26,7 @@
                 android:layout_above="@+id/choreDoerInputField"
                 android:layout_centerHorizontal="true"
                 android:height="60dp"
-                android:text="assign a chore to (userClickedOn)"
+                android:text="assign a chore"
                 android:textIsSelectable="false"
                 android:textSize="25sp" />
 
@@ -92,12 +92,13 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:background="@drawable/forms"
                 android:hint="chore doer placeholder"
                 android:lineSpacingExtra="10dp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:textColor="#231F20" />
+                android:textColor="#231F20"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp" />
 
             <TextView
                 android:id="@+id/choreDescriptionTextView"
@@ -106,7 +107,6 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/choreDoerTextView"
-                android:background="@drawable/forms"
                 android:hint="chore description placeholder"
                 android:lineSpacingExtra="10dp"
                 android:paddingLeft="20dp"
@@ -120,12 +120,12 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/choreDescriptionTextView"
-                android:background="@drawable/forms"
                 android:hint="chore due date placeholder"
                 android:lineSpacingExtra="10dp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:textColor="#231F20" />
+                android:textColor="#231F20"
+                android:layout_marginTop="5dp" />
 
             <Button
                 android:id="@+id/assignChoreButton"

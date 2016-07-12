@@ -77,7 +77,9 @@
         <activity android:name=".AssignChoreActivity" />
         <activity android:name=".SucessPageActivity" />
         <activity android:name=".SuccessPageActivity" />
-        <activity android:name=".UserChoreListActivity"></activity>
+        <activity android:name=".UserChoreListActivity" />
+        <activity android:name=".UserChoreDetailActivity" />
+        <activity android:name=".CleaningServicesActivity"></activity>
     </application>
 
 </manifest><!--

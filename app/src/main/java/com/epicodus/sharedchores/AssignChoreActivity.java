@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -56,8 +57,10 @@ public class AssignChoreActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 String choreDoerInput = mChoreDoerInputField.getText().toString();
-//                Intent intent = new Intent(AssignChoreActivity.this, SuccessPageActivity.class);
-//                intent.putExtra("doer_name", choreDoerInput);
+                Intent intent = new Intent(AssignChoreActivity.this, SuccessPageActivity.class);
+                intent.putExtra("doer_name", choreDoerInput);
+                Log.v("DOER", choreDoerInput);
+
 
                 String choreDescriptionInput = mChoreDescriptionInputField.getText().toString();
                 String choreDueDateInput = mChoreDueDateInputField.getText().toString();
@@ -66,20 +69,20 @@ public class AssignChoreActivity extends AppCompatActivity {
                 userChore.add(choreDescriptionInput);
                 userChore.add(choreDueDateInput);
 
-//                mChoreDoerTextView.setText(choreDoerInput);
+                mChoreDoerTextView.setText(choreDoerInput);
                 mChoreDescriptionTextView.setText(choreDescriptionInput);
                 mChoreDueDateTextView.setText(choreDueDateInput);
 
             }
         });
 
-//        mAssignChoreButton.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                if (v == mAssignChoreButton) {
-//                    Intent goToSuccessPage = new Intent(AssignChoreActivity.this, SuccessPageActivity.class);
-//                    startActivity(goToSuccessPage);
-//                }
-//            }
-//        });
+        mAssignChoreButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (v == mAssignChoreButton) {
+                    Intent goToSuccessPage = new Intent(AssignChoreActivity.this, SuccessPageActivity.class);
+                    startActivity(goToSuccessPage);
+                }
+            }
+        });
     }
 }

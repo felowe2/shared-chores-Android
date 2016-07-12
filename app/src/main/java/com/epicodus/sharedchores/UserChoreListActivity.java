@@ -13,73 +13,70 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+
 public class UserChoreListActivity extends AppCompatActivity {
 
-//    ArrayList<String> userChoreList = new ArrayList<String>();
-////
-//     @Bind(R.id.bottomBar)
-////    TextView mButtomBar;
-////    @Bind(R.id.createGroupHeader)
-////    TextView mCreateGroupHeader;
-////    @Bind(R.id.createGroupButton)
-////    Button mCreateGroupButton;
-////    @Bind(R.id.groupHeader)
-////    TextView mGroupHeader;
-////    @Bind(R.id.groupListView)
-////    ListView mGroupListView;
-////    @Bind(R.id.groupNameInputField)
-////    EditText mGroupNameInputField;
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_create_group);
-//
-//        ButterKnife.bind(this);
-//
-//
-////FONTS EVERYTHING
-//        Typeface boldieFont = Typeface.createFromAsset(getAssets(), "fonts/Boldie.ttf");
-//        mCreateGroupHeader.setTypeface(boldieFont);
-//        mCreateGroupButton.setTypeface(boldieFont);
-//        mGroupHeader.setTypeface(boldieFont);
-//// END OF FONTS
-//
-//
-//
-//        mCreateGroupButton.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View v) {
-//
-//                String groupInput = mGroupNameInputField.getText().toString();
-//
-//                if (groupList.contains(groupInput)) {
-//                    Toast.makeText(getBaseContext(), "Group name already exist", Toast.LENGTH_LONG).show();
-//                } else if (groupInput == null || groupInput.trim().equals(" ")) {
-//                    Toast.makeText(getBaseContext(), "Input field is empty", Toast.LENGTH_LONG).show();
-//                } else {
-//                    groupList.add(groupInput);
-//
-//                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(CreateGroupActivity.this, android.R.layout.simple_list_item_1, groupList);
-//                    mGroupListView.setAdapter(adapter);
-//                }
-//            }
-//
-//            // TODO: 7/9/16 this does not work. Click on item won't take user to AddPeopleActivity (where people are added to the group name clicked on)
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                String groupInput = ((TextView) view).getText().toString();
-//                Intent intent = new Intent(CreateGroupActivity.this, AddPeopleActivity.class);
-//                startActivity(intent);
-//            }
-//
-//        });
-//
-//    }
-}
+    ArrayList<String> userChoreList = new ArrayList<String>();
 
+    @Bind(R.id.userChoreListHeader)
+    TextView mUserChoreListHeader;
+    @Bind(R.id.userChoreListListView)
+    ListView mUserChoreListListView;
+    @Bind(R.id.userChoreListCreateChoreButton)
+    Button mUserChoreListCreateChoreButton;
+
+    private String[] userChores = new String[]{"Sweet Hereafter", "Cricket", "Hawthorne Fish House", "Viking Soul Food",
+            "Red Square", "Horse Brass", "Dick's Kitchen", "Taco Bell", "Me Kha Noodle Bar"};
+
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_user_chore_list);
+
+        ButterKnife.bind(this);
+
+//
+////////FONTS EVERYTHING
+//////        Typeface boldieFont = Typeface.createFromAsset(getAssets(), "fonts/Boldie.ttf");
+//////        mCreateGroupHeader.setTypeface(boldieFont);
+//////        mCreateGroupButton.setTypeface(boldieFont);
+//////        mGroupHeader.setTypeface(boldieFont);
+//////// END OF FONTS
+//
+//
+        mUserChoreListCreateChoreButton.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(UserChoreListActivity.this, CreateGroupActivity.class);
+                startActivity(intent);
+
+
+            }
+
+        });
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(UserChoreListActivity.this, android.R.layout.simple_list_item_1, userChores);
+        mUserChoreListListView.setAdapter(adapter);
+
+        mUserChoreListListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(UserChoreListActivity.this, UserChoreDetailActivity.class);
+                startActivity(intent);
+            }
+        });
+
+    }
+}

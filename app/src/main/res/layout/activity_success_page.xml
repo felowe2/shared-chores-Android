@@ -16,20 +16,21 @@ android:background="@color/background_material_light">
         android:id="@+id/successIconImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@+id/userChoreListHeader"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="46dp" />
 
     <Button
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="my chore list"
-    android:id="@+id/backToUserChoreListButton"
-    android:layout_alignParentBottom="true"
-    android:layout_centerHorizontal="true"
-    android:textColor="#231F20"
-    android:textStyle="bold"
-    android:textSize="17sp"
-    android:background="@drawable/big_button"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="my chore list"
+        android:id="@+id/backToUserChoreListButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="#231F20"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:background="@drawable/big_button"/>
 
     <Button
         android:layout_width="match_parent"
@@ -49,12 +50,10 @@ android:background="@color/background_material_light">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/sucessMessageTextView"
-        android:text="\n Congratulations! \n Chore has been \n successfully added to (userAssigedToChore)'s List"
+        android:id="@+id/userChoreListHeader"
         android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/successIconImageView"
         android:layout_alignStart="@+id/successIconImageView"
         android:textAlignment="center" />
-
 
 </RelativeLayout>
