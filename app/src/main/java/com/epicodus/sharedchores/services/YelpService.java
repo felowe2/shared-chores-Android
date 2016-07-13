@@ -1,5 +1,7 @@
 package com.epicodus.sharedchores.services;
 
+import android.util.Log;
+
 import com.epicodus.sharedchores.Constants;
 
 import okhttp3.Call;
@@ -29,12 +31,15 @@ public class YelpService {
         urlBuilder.addQueryParameter(Constants.YELP_LOCATION_QUERY_PARAMETER, location);
         String url = urlBuilder.build().toString();
 
+        Log.d("CALL", url);
+
         Request request= new Request.Builder()
                 .url(url)
                 .build();
 
         Call call = client.newCall(request);
         call.enqueue(callback);
+
     }
 
 }
