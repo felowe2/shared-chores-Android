@@ -10,60 +10,42 @@
         android:label=" "
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
-            android:name="ui.MainActivity"
+            android:name=".ui.MainActivity"
             android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="ui.SignUpActivity">
+        <activity android:name=".ui.SignUpActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.sharedchores.ui.MainActivity" />
+                android:value="ui.MainActivity" />
         </activity>
-
-        <activity android:name="ui.SignInActivity">
+        <activity android:name=".ui.SignInActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.sharedchores.ui.MainActivity" />
+                android:value="ui.MainActivity" />
         </activity>
-
-        <activity android:name="ui.WelcomePageActivity">
+        <activity android:name=".ui.WelcomePageActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.sharedchores.ui.MainActivity" />
+                android:value="ui.MainActivity" />
         </activity>
-
-
-
         <activity android:name=".ui.AddPeopleActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.sharedchores.ui.MainActivity" />
+                android:value="ui.MainActivity" />
         </activity>
-
-        <activity android:name="ui.CreateGroupActivity">
-        </activity>
-
-        <activity android:name="ui.AssignChoreActivity">
-        </activity>
-
-        <activity android:name="ui.SuccessPageActivity">
-        </activity>
-
-        <activity android:name="ui.UserChoreListActivity">
-        </activity>
-
-        <activity android:name="ui.UserChoreDetailActivity">
-        </activity>
-
-        <activity android:name="ui.api.CleaningServicesActivity">
-        </activity>
+        <activity android:name=".ui.CreateGroupActivity"></activity>
+        <activity android:name=".ui.AssignChoreActivity"></activity>
+        <activity android:name=".ui.SuccessPageActivity"></activity>
+        <activity android:name=".ui.UserChoreListActivity"></activity>
+        <activity android:name=".ui.UserChoreDetailActivity"></activity>
+        <activity android:name=".ui.api.CleaningServicesActivity"></activity>
+        <activity android:name=".ui.CleaningServiceDetailActivity"></activity>
     </application>
 
 </manifest>
-

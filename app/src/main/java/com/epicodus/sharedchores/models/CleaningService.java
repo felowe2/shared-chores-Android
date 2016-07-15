@@ -1,10 +1,10 @@
 package com.epicodus.sharedchores.models;
 
+import org.parceler.Parcel;
+
 import java.util.ArrayList;
 
-/**
- * Created by Guest on 7/13/16.
- */
+@Parcel
 public class CleaningService {
 
     private String mName;
@@ -12,14 +12,17 @@ public class CleaningService {
     private String mWebsite;
     private double mRating;
     private String mImageUrl;
+    private int mReviews;
     private ArrayList<String> mAddress = new ArrayList<>();
     private double mLatitude;
     private double mLongitude;
-    private ArrayList<String> mCategories = new ArrayList<>();
+    
+
+    public CleaningService() {}
 
     public CleaningService(String name, String phone, String website,
                       double rating, String imageUrl, ArrayList<String> address,
-                      double latitude, double longitude, ArrayList<String> categories) {
+                      double latitude, double longitude, int reviews) {
         this.mName = name;
         this.mPhone = phone;
         this.mWebsite = website;
@@ -28,8 +31,15 @@ public class CleaningService {
         this.mAddress = address;
         this.mLatitude = latitude;
         this.mLongitude = longitude;
-        this.mCategories = categories;
+        this.mReviews = reviews;
+        mImageUrl = getLargeImageUrl(imageUrl);
     }
+
+    private String getLargeImageUrl(String imageUrl) {
+        String largeImageUrl = imageUrl.substring(0, imageUrl.length() - 6).concat("o.jpg");
+        return largeImageUrl;
+    }
+
 
     public String getName() {
         return mName;
@@ -63,8 +73,8 @@ public class CleaningService {
         return mLongitude;
     }
 
-    public ArrayList<String> getCategories() {
-        return mCategories;
+    public int getReviews() {
+        return mReviews;
     }
 }
 

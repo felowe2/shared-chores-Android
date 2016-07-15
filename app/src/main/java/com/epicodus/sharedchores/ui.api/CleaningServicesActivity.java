@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.epicodus.sharedchores.R;
+import com.epicodus.sharedchores.adapters.CleaningServiceListAdapter;
 import com.epicodus.sharedchores.models.CleaningService;
 import com.epicodus.sharedchores.services.YelpService;
 
@@ -30,15 +31,12 @@ import okhttp3.Response;
 public class CleaningServicesActivity extends AppCompatActivity {
     public static final String TAG = CleaningServicesActivity.class.getSimpleName();
 
-    @Bind(R.id.locationTextView) TextView mLocationTextView;
-    @Bind(R.id.listView) ListView mListView;
-//    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+    private CleaningServiceListAdapter mAdapter;
+    @Bind(R.id.recyclerView)
+    RecyclerView mRecyclerView;
 
     public ArrayList<CleaningService> mCleaningServices = new ArrayList<>();
 
-//    private String[] cleaningServices = new String[]{"Sweet Hereafter", "Cricket", "Hawthorne Fish House", "Viking Soul Food",
-//            "Red Square", "Horse Brass", "Dick's Kitchen", "Taco Bell", "Me Kha Noodle Bar",
-//            "La Bonita Taqueria", "Smokehouse Tavern", "Pembiche", "Kay's Bar", "Gnarly Grey", "Slappy Cakes", "Mi Mero Mole"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,21 +45,10 @@ public class CleaningServicesActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-//        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, cleaningServices);
-//        mListView.setAdapter(adapter);
-
-//        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                String restaurant = ((TextView) view).getText().toString();
-//                Toast.makeText(CleaningServicesActivity.this, restaurant, Toast.LENGTH_LONG).show();
-//            }
-//        });
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
 
-        mLocationTextView.setText("Here are all the cleaning services near you");
 
         getCleaningServices(location);
     }
@@ -79,40 +66,25 @@ public class CleaningServicesActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onResponse(Call call, Response response){
-                //                    throws IOException {
-//                try {
-//                    String jsonData = response.body().string();
-
-                    mCleaningServices = yelpService.processResults(response);
-//                    if (response.isSuccessful()) {
-//                        Log.v(TAG, jsonData);
+            public void onResponse(Call call, Response response) {
 
 
-                    CleaningServicesActivity.this.runOnUiThread(new Runnable() {
+                mCleaningServices = yelpService.processResults(response);
 
-                        @Override
-                        public void run() {
-                            String[] cleaningServiceNames = new String[mCleaningServices.size()];
-                            for (int i = 0; i < cleaningServiceNames.length; i++) {
-                                cleaningServiceNames[i] = mCleaningServices.get(i).getName();
-                            }
+                CleaningServicesActivity.this.runOnUiThread(new Runnable() {
 
-                            ArrayAdapter adapter = new ArrayAdapter(CleaningServicesActivity.this,
-                                    android.R.layout.simple_list_item_1, cleaningServiceNames);
-                            mListView.setAdapter(adapter);
+                    @Override
+                    public void run() {
 
-                            for (CleaningService cleaningService : mCleaningServices) {
-                                Log.d(TAG, "Name: " + cleaningService.getName());
-                                Log.d(TAG, "Phone: " + cleaningService.getPhone());
-                                Log.d(TAG, "Website: " + cleaningService.getWebsite());
-                                Log.d(TAG, "Image url: " + cleaningService.getImageUrl());
-                                Log.d(TAG, "Rating: " + Double.toString(cleaningService.getRating()));
-                                Log.d(TAG, "Address: " + android.text.TextUtils.join(", ", cleaningService.getAddress()));
-                                Log.d(TAG, "Categories: " + cleaningService.getCategories().toString());
-                            }
-                        }
-                    });
+                        mAdapter = new CleaningServiceListAdapter(getApplicationContext(), mCleaningServices);
+                        mRecyclerView.setAdapter(mAdapter);
+                        RecyclerView.LayoutManager layoutManager =
+                                new LinearLayoutManager(CleaningServicesActivity.this);
+                        mRecyclerView.setLayoutManager(layoutManager);
+                        mRecyclerView.setHasFixedSize(true);
+
+                    }
+                });
             }
         });
     }
