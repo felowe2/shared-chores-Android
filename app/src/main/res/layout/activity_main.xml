@@ -19,7 +19,7 @@
         android:layout_alignParentStart="true"
         android:background="@drawable/logo"
         android:layout_above="@+id/signUpButton"
-        android:layout_below="@+id/sharedHappiness"
+        android:layout_below="@+id/sharedHappinessTitle"
         android:layout_marginTop="20sp" />
 
     <TextView
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:text="Shared Chores"
         android:textSize="50sp"
-        android:id="@+id/welcome"
+        android:id="@+id/sharedChoresTitle"
         android:textStyle="bold"
         android:textAlignment="center"
         android:autoText="false"
@@ -43,13 +43,13 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="shared happiness"
-        android:id="@+id/sharedHappiness"
+        android:id="@+id/sharedHappinessTitle"
         android:textSize="20sp"
         android:textAlignment="center"
         android:background="#00ffffff"
         android:textIsSelectable="true"
         android:textStyle="bold"
-        android:layout_below="@+id/welcome"
+        android:layout_below="@+id/sharedChoresTitle"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textColor="#231F20" />

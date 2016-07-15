@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context="ui.SignUpActivity"
+android:background="@color/background_material_light">
+
+<LinearLayout
+
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="ui.SignInActivity"
-    android:background="@color/background_material_light">
+    android:layout_height="wrap_content"
+    android:padding="30dp"
+    android:id="@+id/linearLayout1"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true">
 
     <Button
         android:layout_width="match_parent"
@@ -22,54 +30,88 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:background="@drawable/facebook_button"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Log in with Google"
         android:textAllCaps="false"
         android:id="@+id/logInGoogleButton"
-        android:layout_marginTop="7dp"
+        android:layout_below="@+id/logInFacebookButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
         android:textColor="#ffffff"
         android:textSize="17sp"
-        android:background="@drawable/google_button"
-        android:layout_below="@+id/logInFacebookButton"
-        android:layout_centerHorizontal="true" />
+        android:background="@drawable/google_button"/>
+
+</LinearLayout>
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Log In"
+    android:textColor="#231F20"
+    android:textSize="30dp"
+    android:textStyle="bold"
+    android:layout_above="@+id/linearLayout"
+    android:layout_centerHorizontal="true"
+    android:id="@+id/logInHeader" />
+
+
+<LinearLayout
+
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="30dp"
+    android:id="@+id/linearLayout"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true">
+
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textVisiblePassword|textNoSuggestions"
-        android:ems="10"
-        android:id="@+id/emailSignIn"
-        android:hint=" name (first, last)"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@drawable/forms"/>
+    android:id="@+id/emailSignIn"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:hint="Email"
+    android:inputType="textEmailAddress"
+    android:nextFocusDown="@+id/passwordInput"
+    android:padding="10dp"
+    android:layout_marginBottom="10dp"
+    android:textColor="@android:color/black"
+    android:textColorHint="@color/colorDivider"
+    android:textSize="20sp" />
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
         android:id="@+id/passwordSignIn"
-        android:hint=" password"
-        android:background="@drawable/forms"
-        android:layout_above="@+id/signInButton"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="140dp" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:inputType="textVisiblePassword|textNoSuggestions"
+        android:hint="Password"
+        android:nextFocusDown="@+id/emailSignIn"
+        android:padding="10dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@android:color/black"
+        android:textColorHint="@color/colorDivider"
+        android:textSize="20sp" />
+
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Go!"
-        android:id="@+id/signInButton"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:textColor="#231F20"
-        android:allowUndo="true"
-        android:textStyle="bold"
-        android:background="@drawable/big_button"
-        android:textSize="17sp" />
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Go!"
+    android:id="@+id/signInButton"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true"
+    android:textColor="#231F20"
+    android:allowUndo="true"
+    android:textStyle="bold"
+    android:background="@drawable/big_button"
+    android:textSize="17sp" />
+
+</LinearLayout>
+
 </RelativeLayout>

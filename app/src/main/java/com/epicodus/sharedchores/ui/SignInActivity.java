@@ -18,6 +18,7 @@ import butterknife.ButterKnife;
 
 public class SignInActivity extends AppCompatActivity implements View.OnClickListener {
 
+    @Bind(R.id.logInHeader) TextView mLogInHeader;
     @Bind(R.id.emailSignIn) EditText mEmailSignIn;
     @Bind(R.id.passwordSignIn) EditText mPasswordSignIn;
     @Bind(R.id.signInButton) Button mSignInButton;
@@ -31,9 +32,9 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         ButterKnife.bind(this);
 
 //FONTS EVERYTHING
-        mSignInButton = (Button) findViewById(R.id.signInButton);
         Typeface boldieFont = Typeface.createFromAsset(getAssets(), "fonts/Boldie.ttf");
         mSignInButton.setTypeface(boldieFont);
+        mLogInHeader.setTypeface(boldieFont);
 
 // END OF FONTS
 

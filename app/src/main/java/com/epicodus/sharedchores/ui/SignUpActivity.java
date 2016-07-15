@@ -15,11 +15,11 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener{
-    @Bind(R.id.signInButton) Button mSubmitSignUpButton;
-    @Bind(R.id.SucessMessageTextView) TextView mCreateAccount;
+    @Bind(R.id.signUpButton) Button mSignUpButton;
+    @Bind(R.id.createAccountHeader) TextView mCreateAccountHeader;
     @Bind(R.id.usernameInput) EditText mUsernameInput;
     @Bind(R.id.emailInput) EditText mEmailInput;
-    @Bind(R.id.passwordSignIn) EditText mPasswordInput;
+    @Bind(R.id.passwordInput) EditText mPasswordInput;
     @Bind(R.id.password2Input) EditText mPassword2Input;
 
 
@@ -31,18 +31,17 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         ButterKnife.bind(this);
 
 //FONTS EVERYTHING
-        mCreateAccount = (TextView) findViewById(R.id.SucessMessageTextView);
         Typeface boldieFont = Typeface.createFromAsset(getAssets(), "fonts/Boldie.ttf");
-        mCreateAccount.setTypeface(boldieFont);
-        mSubmitSignUpButton.setTypeface(boldieFont);
+        mCreateAccountHeader.setTypeface(boldieFont);
+        mSignUpButton.setTypeface(boldieFont);
 // END OF FONTS
 
-        mSubmitSignUpButton.setOnClickListener(this);
+        mSignUpButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if (v == mSubmitSignUpButton) {
+        if (v == mSignUpButton) {
             String usernameInput = mUsernameInput.getText().toString();
             String emailInput = mEmailInput.getText().toString();
             String passwordInput = mPasswordInput.getText().toString();

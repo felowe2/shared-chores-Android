@@ -26,7 +26,6 @@ public class WelcomePageActivity extends AppCompatActivity implements View.OnCli
         ButterKnife.bind(this);
 
 //FONTS EVERYTHING
-//        mGetStartedButton = (Button) findViewById(R.id.getStartedButton);
         Typeface boldieFont = Typeface.createFromAsset(getAssets(), "fonts/Boldie.ttf");
         mGetStartedButton.setTypeface(boldieFont);
         mAboutUsTitle.setTypeface(boldieFont);

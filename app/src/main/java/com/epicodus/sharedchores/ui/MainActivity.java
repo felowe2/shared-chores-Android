@@ -14,8 +14,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.welcome) TextView mSharedChoresTitle;
-    @Bind(R.id.sharedHappiness) TextView mSharedHappiness;
+    @Bind(R.id.sharedChoresTitle) TextView mSharedChoresTitle;
+    @Bind(R.id.sharedHappinessTitle) TextView mSharedHappinessTitle;
     @Bind(R.id.signInButton) Button mSignInButton;
     @Bind(R.id.signUpButton) Button mSignUpButton;
 
@@ -27,10 +27,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ButterKnife.bind(this);
 
 //FONTS EVERYTHING
-        mSharedChoresTitle = (TextView) findViewById(R.id.welcome);
+//        mSharedChoresTitle = (TextView) findViewById(R.id.welcome);
         Typeface boldieFont = Typeface.createFromAsset(getAssets(), "fonts/Boldie.ttf");
         mSharedChoresTitle.setTypeface(boldieFont);
-        mSharedHappiness.setTypeface(boldieFont);
+        mSharedHappinessTitle.setTypeface(boldieFont);
         mSignUpButton.setTypeface(boldieFont);
         mSignInButton.setTypeface(boldieFont);
 // END OF FONTS
