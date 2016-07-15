@@ -70,6 +70,7 @@
 
         <activity android:name=".ui.SuccessPageActivity"></activity>
         <activity android:name=".ui.UserChoreListActivity"></activity>
+        <activity android:name="com.epicodus.sharedchores.ui.WelcomePageActivity"></activity>
     </application>
 
 </manifest>

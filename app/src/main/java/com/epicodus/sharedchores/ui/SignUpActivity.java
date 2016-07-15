@@ -13,13 +13,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.epicodus.sharedchores.Constants;
 import com.epicodus.sharedchores.R;
+import com.epicodus.sharedchores.models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -62,14 +66,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         createAuthProgressDialog();
 
         mAuth = FirebaseAuth.getInstance();
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                //display welcome message
-            }
-        };
-
-        
 
         mSignUpButton.setOnClickListener(this);
     }
@@ -104,23 +100,24 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         mAuthProgressDialog.show();
 
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Log.d(TAG, "Authentication successful");
-                            createFirebaseUserProfile(task.getResult().getUser());
-                        } else {
-                            Toast.makeText(SignUpActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-
-        Intent goToWelcomePage = new Intent(this, WelcomePageActivity.class);
-        goToWelcomePage.putExtra("username", mUsername);
-        goToWelcomePage.putExtra("email", email);
-        goToWelcomePage.putExtra("password", password);
-        goToWelcomePage.putExtra("password2", password2);
-        startActivity(goToWelcomePage);
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                mAuthProgressDialog.dismiss();
+                if (task.isSuccessful()) {
+                    Log.d(TAG, "Authentication successful");
+                    createFirebaseUserProfile(task.getResult().getUser());
+                } else {
+                    Toast.makeText(SignUpActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+//
+//        Intent goToWelcomePage = new Intent(this, WelcomePageActivity.class);
+//        goToWelcomePage.putExtra("username", mUsername);
+//        goToWelcomePage.putExtra("email", email);
+//        goToWelcomePage.putExtra("password", password);
+//        goToWelcomePage.putExtra("password2", password2);
+//        startActivity(goToWelcomePage);
     }
 
     private void createAuthStateListener() {
@@ -128,8 +125,19 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                final FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
+
+                final FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+                if (firebaseUser != null) {
+
+//THIS CREATE A USER AND IT'S UNIQUE ID AND PUSH IT TO "USERS" NODE IN DATABASE'
+                    User user = new User(firebaseUser.getDisplayName(), firebaseUser.getEmail());
+                    String uid = firebaseUser.getUid();
+                    DatabaseReference ref = FirebaseDatabase
+                            .getInstance()
+                            .getReference(Constants.FIREBASE_CHILD_USERS)
+                            .child(uid);
+                    ref.setValue(user);
+
                     Intent intent = new Intent(SignUpActivity.this, WelcomePageActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
@@ -182,6 +190,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         }
         return true;
     }
+
     private void createFirebaseUserProfile(final FirebaseUser user) {
 
         UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
@@ -194,7 +203,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Log.d("TAG", user.getDisplayName());
+                            Log.d("TAG", user.getDisplayName() + " ");
                         }
                     }
 
