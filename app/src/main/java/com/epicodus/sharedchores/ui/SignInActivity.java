@@ -1,5 +1,6 @@
-package com.epicodus.sharedchores;
+package com.epicodus.sharedchores.ui;
 
+import com.epicodus.sharedchores.R;
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;

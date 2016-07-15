@@ -1,4 +1,4 @@
-package com.epicodus.sharedchores;
+package com.epicodus.sharedchores.models;
 
 
 public class Chore {
