@@ -1,6 +1,8 @@
 package com.epicodus.sharedchores.ui.api;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,6 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.epicodus.sharedchores.Constants;
 import com.epicodus.sharedchores.R;
 import com.epicodus.sharedchores.adapters.CleaningServiceListAdapter;
 import com.epicodus.sharedchores.models.CleaningService;
@@ -32,8 +35,11 @@ public class CleaningServicesActivity extends AppCompatActivity {
     public static final String TAG = CleaningServicesActivity.class.getSimpleName();
 
     private CleaningServiceListAdapter mAdapter;
-    @Bind(R.id.recyclerView)
-    RecyclerView mRecyclerView;
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
+    private String mRecentAddress;
+
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
 
     public ArrayList<CleaningService> mCleaningServices = new ArrayList<>();
 
@@ -51,6 +57,13 @@ public class CleaningServicesActivity extends AppCompatActivity {
 
 
         getCleaningServices(location);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+        Log.d("Shared Pref Location", mRecentAddress);
+        if (mRecentAddress != null) {
+            getCleaningServices(mRecentAddress);
+        }
     }
 
 
