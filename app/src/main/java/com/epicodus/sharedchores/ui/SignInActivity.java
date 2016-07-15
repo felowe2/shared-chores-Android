@@ -18,6 +18,7 @@ import butterknife.ButterKnife;
 
 public class SignInActivity extends AppCompatActivity implements View.OnClickListener {
 
+
     @Bind(R.id.logInHeader) TextView mLogInHeader;
     @Bind(R.id.emailSignIn) EditText mEmailSignIn;
     @Bind(R.id.passwordSignIn) EditText mPasswordSignIn;
@@ -43,10 +44,10 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
         if (v == mSignInButton) {
-            String emailSignIn = mEmailSignIn.getText().toString();
-            String passwordSignIn = mPasswordSignIn.getText().toString();
+            final String emailSignIn = mEmailSignIn.getText().toString();
+            final String passwordSignIn = mPasswordSignIn.getText().toString();
 
-            Intent goToUserPage = new Intent(this, CreateGroupActivity.class);
+            Intent goToUserPage = new Intent(this, UserChoreListActivity.class);
             goToUserPage.putExtra("email", emailSignIn);
             goToUserPage.putExtra("password", passwordSignIn);
             startActivity(goToUserPage);

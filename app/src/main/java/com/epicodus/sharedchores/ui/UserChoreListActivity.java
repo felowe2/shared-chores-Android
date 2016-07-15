@@ -2,6 +2,7 @@ package com.epicodus.sharedchores.ui;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 
 import com.epicodus.sharedchores.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import org.w3c.dom.Text;
 
@@ -31,6 +33,9 @@ public class UserChoreListActivity extends AppCompatActivity {
 
     ArrayList<String> userChoreList = new ArrayList<String>();
 
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+
     @Bind(R.id.userChoreListHeader)
     TextView mUserChoreListHeader;
     @Bind(R.id.userChoreListListView)
@@ -42,23 +47,33 @@ public class UserChoreListActivity extends AppCompatActivity {
             "Red Square", "Horse Brass", "Dick's Kitchen", "Taco Bell", "Me Kha Noodle Bar"};
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_chore_list);
-
         ButterKnife.bind(this);
 
-//
+
 ////////FONTS EVERYTHING
 //////        Typeface boldieFont = Typeface.createFromAsset(getAssets(), "fonts/Boldie.ttf");
 //////        mCreateGroupHeader.setTypeface(boldieFont);
 //////        mCreateGroupButton.setTypeface(boldieFont);
 //////        mGroupHeader.setTypeface(boldieFont);
 //////// END OF FONTS
-//
-//
+
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    getSupportActionBar().setTitle("Welcome, " + user.getDisplayName() + "!");
+                } else {
+
+                }
+            }
+        };
+
         mUserChoreListCreateChoreButton.setOnClickListener(new View.OnClickListener() {
 
 
@@ -101,7 +116,7 @@ public class UserChoreListActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
-}
+    }
 
     private void logout() {
         FirebaseAuth.getInstance().signOut();
@@ -109,5 +124,20 @@ public class UserChoreListActivity extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
+
     }
 }

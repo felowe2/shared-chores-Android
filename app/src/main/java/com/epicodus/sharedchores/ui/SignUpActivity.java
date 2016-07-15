@@ -1,5 +1,6 @@
 package com.epicodus.sharedchores.ui;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
@@ -18,6 +19,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -27,6 +29,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private ProgressDialog mAuthProgressDialog;
+    private String mUsername;
 
     @Bind(R.id.createAccountHeader)
     TextView mCreateAccountHeader;
@@ -48,18 +52,35 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_sign_up);
         ButterKnife.bind(this);
 
-        mAuth = FirebaseAuth.getInstance();
-
 //FONTS EVERYTHING
         Typeface boldieFont = Typeface.createFromAsset(getAssets(), "fonts/Boldie.ttf");
         mCreateAccountHeader.setTypeface(boldieFont);
         mSignUpButton.setTypeface(boldieFont);
 // END OF FONTS
 
-        mSignUpButton.setOnClickListener(this);
-
         createAuthStateListener();
+        createAuthProgressDialog();
+
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                //display welcome message
+            }
+        };
+
+        
+
+        mSignUpButton.setOnClickListener(this);
     }
+
+    private void createAuthProgressDialog() {
+        mAuthProgressDialog = new ProgressDialog(this);
+        mAuthProgressDialog.setTitle("Loading...");
+        mAuthProgressDialog.setMessage("Authenticating...");
+        mAuthProgressDialog.setCancelable(false);
+    }
+
 
     @Override
     public void onClick(View v) {
@@ -70,17 +91,24 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void createNewUser() {
-        String username = mUsernameInput.getText().toString().trim();
+        mUsername = mUsernameInput.getText().toString().trim();
         String email = mEmailInput.getText().toString().trim();
         String password = mPasswordInput.getText().toString().trim();
         String password2 = mPassword2Input.getText().toString().trim();
 
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        boolean validEmail = isValidEmail(email);
+        boolean validName = isValidName(mUsername);
+        boolean validPassword = isValidPassword(password, password2);
+        if (!validEmail || !validName || !validPassword) return;
+
+        mAuthProgressDialog.show();
+
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "Authentication successful");
+                            createFirebaseUserProfile(task.getResult().getUser());
                         } else {
                             Toast.makeText(SignUpActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                         }
@@ -88,7 +116,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 });
 
         Intent goToWelcomePage = new Intent(this, WelcomePageActivity.class);
-        goToWelcomePage.putExtra("username", username);
+        goToWelcomePage.putExtra("username", mUsername);
         goToWelcomePage.putExtra("email", email);
         goToWelcomePage.putExtra("password", password);
         goToWelcomePage.putExtra("password2", password2);
@@ -112,18 +140,67 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         };
     }
 
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        mAuth.addAuthStateListener(mAuthListener);
-//    }
-//
-//    @Override
-//    public void onStop() {
-//        super.onStop();
-//        if (mAuthListener != null) {
-//            mAuth.removeAuthStateListener(mAuthListener);
-//        }
-//    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
+    }
+
+    private boolean isValidEmail(String email) {
+        boolean isGoodEmail =
+                (email != null && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches());
+        if (!isGoodEmail) {
+            mEmailInput.setError("Please enter a valid email address");
+            return false;
+        }
+        return isGoodEmail;
+    }
+
+    private boolean isValidName(String name) {
+        if (name.equals("")) {
+            mUsernameInput.setError("Please enter your name");
+            return false;
+        }
+        return true;
+    }
+
+    private boolean isValidPassword(String password, String confirmPassword) {
+        if (password.length() < 6) {
+            mPasswordInput.setError("Please create a password containing at least 6 characters");
+            return false;
+        } else if (!password.equals(confirmPassword)) {
+            mPassword2Input.setError("Passwords do not match");
+            return false;
+        }
+        return true;
+    }
+    private void createFirebaseUserProfile(final FirebaseUser user) {
+
+        UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
+                .setDisplayName(mUsername)
+                .build();
+
+        user.updateProfile(addProfileName)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d("TAG", user.getDisplayName());
+                        }
+                    }
+
+                });
+    }
 }
+
+
 
