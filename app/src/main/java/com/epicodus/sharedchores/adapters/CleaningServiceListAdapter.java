@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.epicodus.sharedchores.R;
 import com.epicodus.sharedchores.models.CleaningService;
-import com.epicodus.sharedchores.ui.CleaningServiceDetailActivity;
+import com.epicodus.sharedchores.ui.api.CleaningServiceDetailActivity;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;

@@ -1,4 +1,4 @@
-package com.epicodus.sharedchores.ui;
+package com.epicodus.sharedchores.ui.api;
 
 
 import android.content.Intent;

@@ -12,7 +12,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="200dp"
             android:id="@+id/cleaningServiceImageView"
             android:src="@drawable/cleaning_tools"
             android:scaleType="centerCrop" />
@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/white"
-            android:paddingTop="20dp"
+            android:paddingTop="30dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:paddingBottom="20dp">
@@ -31,22 +31,25 @@
                 android:layout_height="wrap_content"
                 android:text="Cleaning Service Name"
                 android:id="@+id/cleaningServiceNameTextView"
-                android:layout_alignParentLeft="true"
+                android:layout_alignParentLeft="false"
                 android:layout_alignParentStart="true"
                 android:textSize="20sp"
                 android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_alignWithParentIfMissing="false"
+                android:layout_alignParentBottom="false" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="4.5/5"
                 android:id="@+id/ratingTextView"
-                android:layout_alignTop="@+id/cleaningServiceNameTextView"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
                 android:textColor="@color/colorAccent"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_alignParentTop="false"
+                android:layout_alignParentRight="false"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="false" />
 
             <TextView
                 android:layout_width="wrap_content"

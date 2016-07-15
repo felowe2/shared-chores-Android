@@ -1,4 +1,4 @@
-package com.epicodus.sharedchores.ui;
+package com.epicodus.sharedchores.ui.api;
 
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;

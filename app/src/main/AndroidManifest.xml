@@ -45,7 +45,7 @@
         <activity android:name=".ui.UserChoreListActivity"></activity>
         <activity android:name=".ui.UserChoreDetailActivity"></activity>
         <activity android:name=".ui.api.CleaningServicesActivity"></activity>
-        <activity android:name=".ui.CleaningServiceDetailActivity"></activity>
+        <activity android:name=".ui.api.CleaningServiceDetailActivity"></activity>
     </application>
 
 </manifest>

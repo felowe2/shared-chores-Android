@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "622229352839",
+    "firebase_url": "https://shared-chores.firebaseio.com",
+    "project_id": "shared-chores",
+    "storage_bucket": "shared-chores.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:622229352839:android:8415d4d54710ec54",
+        "android_client_info": {
+          "package_name": "com.epicodus.sharedchores"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "622229352839-unqthg16l9kar40r7f39qh3tdm298rbn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.epicodus.sharedchores",
+            "certificate_hash": "65301A0D637CF7F2D9F34CB20D0751683E52CCD0"
+          }
+        },
+        {
+          "client_id": "622229352839-lf1mfskudubfdkokf047jl21eadg8e1v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3E0_75ZhUXD6ByP2g3y9KI-Ul8DK69Mc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "622229352839-lf1mfskudubfdkokf047jl21eadg8e1v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

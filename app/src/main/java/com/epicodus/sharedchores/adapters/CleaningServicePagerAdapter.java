@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.epicodus.sharedchores.models.CleaningService;
-import com.epicodus.sharedchores.ui.CleaningServiceDetailFragment;
+import com.epicodus.sharedchores.ui.api.CleaningServiceDetailFragment;
 
 import java.util.ArrayList;
 
