@@ -2,8 +2,11 @@ package com.epicodus.sharedchores.ui;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,7 +16,19 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.epicodus.sharedchores.Constants;
 import com.epicodus.sharedchores.R;
+import com.epicodus.sharedchores.adapters.FirebaseGroupListViewHolder;
+import com.epicodus.sharedchores.models.Group;
+import com.epicodus.sharedchores.models.User;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -22,20 +37,26 @@ import butterknife.ButterKnife;
 
 public class CreateGroupActivity extends AppCompatActivity {
 
-    ArrayList<String> groupList = new ArrayList<String>();
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+    private DatabaseReference mGroupReference;
+    private FirebaseRecyclerAdapter mFirebaseAdapter;
+    private Group mGroup;
 
-    @Bind(R.id.bottomBar)
-    TextView mButtomBar;
+    ArrayList<String> mGroups = new ArrayList<String>();
+
+//    @Bind(R.id.bottomBar)
+//    TextView mButtomBar;
     @Bind(R.id.createGroupHeader)
     TextView mCreateGroupHeader;
     @Bind(R.id.createGroupButton)
     Button mCreateGroupButton;
     @Bind(R.id.groupHeader)
     TextView mGroupHeader;
-    @Bind(R.id.groupListView)
-    ListView mGroupListView;
-    @Bind(R.id.groupNameInputField)
-    EditText mGroupNameInputField;
+    @Bind(R.id.recyclerView)
+    ListView mRecyclerView;
+    @Bind(R.id.groupName)
+    EditText mGroupName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +64,9 @@ public class CreateGroupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_group);
 
         ButterKnife.bind(this);
+
+        mAuth = FirebaseAuth.getInstance();
+        createAuthStateListener();
 
 
 //FONTS EVERYTHING
@@ -57,31 +81,58 @@ public class CreateGroupActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                if (v == mCreateGroupButton) {
+                    createNewGroup();
+                }
+                }
+            private void createNewGroup() {
+                String group = mGroupName.getText().toString().trim();
+            }
+                            public void onComplete(@NonNull Task<AuthResult> task) {
 
-                String groupInput = mGroupNameInputField.getText().toString();
+                            }
+                        });
+    }
 
+    private void createAuthStateListener() {
 
-                if (groupList.contains(groupInput)) {
-                    Toast.makeText(getBaseContext(), "Group name already exist", Toast.LENGTH_LONG).show();
-                } else if (groupInput == null || groupInput.trim().equals(" ")) {
-                    Toast.makeText(getBaseContext(), "Input field is empty", Toast.LENGTH_LONG).show();
-                } else {
-                    groupList.add(groupInput);
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
 
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(CreateGroupActivity.this, android.R.layout.simple_list_item_1, groupList);
-                    mGroupListView.setAdapter(adapter);
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                final FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+                if (firebaseUser != null) {
+                    Group group = new Group(firebaseUser.getDisplayName());
+                    String uid = firebaseUser.getUid();
+                    DatabaseReference ref = FirebaseDatabase
+                            .getInstance()
+                            .getReference(Constants.FIREBASE_CHILD_GROUPS)
+                            .child(uid);
+                    ref.setValue(group);
+
+//
+//                    Intent intent = new Intent(CreateGroupActivity.this, AddPeopleActivity.class);
+//                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                    startActivity(intent);
+//                    finish();
                 }
             }
 
-        });
+        };
 
-        mGroupListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(CreateGroupActivity.this, AddPeopleActivity.class);
-                startActivity(intent);
-            }
-        });
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
     }
 }
 

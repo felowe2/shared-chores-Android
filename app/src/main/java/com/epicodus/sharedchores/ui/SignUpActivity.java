@@ -111,9 +111,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 }
             }
         });
-//
-//        Intent goToWelcomePage = new Intent(this, WelcomePageActivity.class);
-//        goToWelcomePage.putExtra("username", mUsername);
+
+        Intent goToWelcomePage = new Intent(this, WelcomePageActivity.class);
+        goToWelcomePage.putExtra("username", mUsername);
 //        goToWelcomePage.putExtra("email", email);
 //        goToWelcomePage.putExtra("password", password);
 //        goToWelcomePage.putExtra("password2", password2);
