@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.epicodus.sharedchores.R;
@@ -46,7 +45,7 @@ public class GroupListAdapter extends RecyclerView.Adapter<GroupListAdapter.Grou
 
 
     public class GroupViewHolder extends RecyclerView.ViewHolder{
-        @Bind(R.id.groupName) TextView mGroupName;
+        @Bind(R.id.groupNameEditText) TextView mGroupName;
 
         private Context mContext;
 

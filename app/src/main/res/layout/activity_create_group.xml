@@ -20,13 +20,13 @@
                 android:text="create group"
                 android:id="@+id/createGroupHeader"
                 android:textSize="30sp"
-                android:layout_above="@+id/groupName"
+                android:layout_above="@+id/groupNameEditText"
                 android:layout_centerHorizontal="true" />
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/groupName"
+                android:id="@+id/groupNameEditText"
                 android:hint="group name"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true" />
@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/createGroupButton"
                 android:text="create"
-                android:layout_below="@+id/groupName"
+                android:layout_below="@+id/groupNameEditText"
                 android:layout_centerHorizontal="true" />
 
         </RelativeLayout>
@@ -54,18 +54,21 @@
             android:textSize="35sp"
             android:textAlignment="center" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
 
-            <android.support.v7.widget.RecyclerView
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/recyclerView" />
+                android:layout_height="62dp"
+                android:id="@+id/groupNameTextView"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textSize="16sp" />
 
-            <TableLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            <!--<TableLayout-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content" />-->
             <!--<TextView-->
                 <!--android:id="@+id/bottomBar"-->
                 <!--style="@drawable/bottom_nav_bar"-->
@@ -75,7 +78,7 @@
                 <!--android:layout_alignParentBottom="true"-->
                 <!--android:layout_alignParentLeft="true"-->
                 <!--android:layout_alignParentStart="true" />-->
-        </RelativeLayout>
+        <!--</RelativeLayout>-->
 
     </LinearLayout>
 </FrameLayout>

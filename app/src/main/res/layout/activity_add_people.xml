@@ -17,11 +17,12 @@ tools:context="ui.AddPeopleActivity">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="add people to this chore"
+            android:text="add people to (groupName)&apos;s group"
             android:id="@+id/addPeopleHeader"
             android:textSize="30sp"
             android:layout_above="@+id/addPersonNameInputField"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center" />
 
         <EditText
             android:layout_width="wrap_content"

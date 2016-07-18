@@ -23,12 +23,12 @@ import java.util.ArrayList;
 /**
  * Created by flowe on 7/17/16.
  */
-public class FirebaseGroupListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class FirebaseGroupViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
     View mView;
     Context mContext;
 
-    public FirebaseGroupListViewHolder(View itemView) {
+    public FirebaseGroupViewHolder(View itemView) {
         super(itemView);
         mView = itemView;
         mContext = itemView.getContext();
@@ -36,18 +36,24 @@ public class FirebaseGroupListViewHolder extends RecyclerView.ViewHolder impleme
 
     }
 
-    public void bindGroup(final Group group) {
+    public void bindGroup(Group group) {
 
-        final TextView groupName = (TextView) mView.findViewById(R.id.groupName);
+     TextView groupName = (TextView) mView.findViewById(R.id.groupNameEditText);
 
 
         groupName.setText(group.getName());
-    }
 
-//        mView.setOnClickListener(new View.OnClickListener() {
+//    mView.setOnClickListener(new View.OnClickListener() {
+//        @Override
+//        public void onClick(View view) {
+//            Intent.addExtra(group);
+//        }
+//    });
+}
 
     @Override
     public void onClick(View view) {
+
         final ArrayList<Group> groups = new ArrayList<>();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_GROUPS);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -75,5 +81,6 @@ public class FirebaseGroupListViewHolder extends RecyclerView.ViewHolder impleme
         });
     }
 }
+
 
 

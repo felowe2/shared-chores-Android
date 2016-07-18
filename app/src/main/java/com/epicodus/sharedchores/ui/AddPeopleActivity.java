@@ -14,6 +14,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.epicodus.sharedchores.R;
+import com.epicodus.sharedchores.models.Group;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -22,26 +25,28 @@ import butterknife.ButterKnife;
 
 public class AddPeopleActivity extends AppCompatActivity {
     ArrayList<String> listOfPeopleAddedToGroup = new ArrayList<String>();
+    private Group group;
 
-    @Bind(R.id.addPeopleHeader)
-    TextView mAddPeopleHeader;
-    @Bind(R.id.addPersonNameInputField)
-    EditText mAddPersonNameInputField;
-    @Bind(R.id.addPersonButton)
-    Button mAddPersonButton;
-    @Bind(R.id.peopleAddedHeader)
-    TextView mPeopleAddedHeader;
-    @Bind(R.id.peopleAddedListView)
-    ListView mPeopleAddedListView;
+    @Bind(R.id.addPeopleHeader) TextView mAddPeopleHeader;
+    @Bind(R.id.addPersonNameInputField) EditText mAddPersonNameInputField;
+    @Bind(R.id.addPersonButton) Button mAddPersonButton;
+    @Bind(R.id.peopleAddedHeader) TextView mPeopleAddedHeader;
+    @Bind(R.id.peopleAddedListView) ListView mPeopleAddedListView;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_people);
-
-
         ButterKnife.bind(this);
+
+//        Intent intent = getIntent();
+//        String groupName = intent.getStringExtra("groupName");
+//        mAddPeopleHeader.setText("Add people to " + groupName +"'s group");
+
+        group = Parcels.unwrap(getIntent().getParcelableExtra("group"));
+        String groupName = group.getName();
+        mAddPeopleHeader.setText("Add people to " + groupName +"'s group");
 
 
 //FONTS EVERYTHING
