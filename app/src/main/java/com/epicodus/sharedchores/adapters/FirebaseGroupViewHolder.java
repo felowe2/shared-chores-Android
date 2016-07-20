@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.epicodus.sharedchores.Constants;
 import com.epicodus.sharedchores.R;
 import com.epicodus.sharedchores.models.Group;
-import com.epicodus.sharedchores.ui.AddPeopleActivity;
+//import com.epicodus.sharedchores.ui.AddPeopleActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -67,11 +67,11 @@ public class FirebaseGroupViewHolder extends RecyclerView.ViewHolder implements 
                 int itemPosition = getLayoutPosition();
 
 
-                Intent intent = new Intent(mContext, AddPeopleActivity.class);
-                intent.putExtra("position", itemPosition + "");
-                intent.putExtra("groups", Parcels.wrap(groups));
+//                Intent intent = new Intent(mContext, AddPeopleActivity.class);
+//                intent.putExtra("position", itemPosition + "");
+//                intent.putExtra("groups", Parcels.wrap(groups));
 
-                mContext.startActivity(intent);
+//                mContext.startActivity(intent);
 
             }
 

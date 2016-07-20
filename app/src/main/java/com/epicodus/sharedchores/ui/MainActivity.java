@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.sharedChoresTitle) TextView mSharedChoresTitle;
     @Bind(R.id.sharedHappinessTitle) TextView mSharedHappinessTitle;
     @Bind(R.id.signInButton) Button mSignInButton;
-    @Bind(R.id.signUpButton) Button mSignUpButton;
+    @Bind(R.id.createChoreButton) Button mSignUpButton;
 
 
     @Override

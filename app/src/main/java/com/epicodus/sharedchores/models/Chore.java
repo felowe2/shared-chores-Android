@@ -1,28 +1,46 @@
 package com.epicodus.sharedchores.models;
 
+import org.parceler.Parcel;
 
+@Parcel
 public class Chore {
 
-    private String mDoer;
-    private String mDescription;
-    private String mDueDate;
+    private String title;
+    private String doer;
+    private String description;
+    private String dueDate;
+    private String pushId;
 
+    public Chore(){}
 
-    public Chore(String doer, String description, String dueDate) {
-        this.mDoer = doer;
-        this.mDescription = description;
-        this.mDueDate = dueDate;
+    public Chore(String title,String doer, String description, String dueDate) {
+        this.title = title;
+        this.doer = doer;
+        this.description = description;
+        this.dueDate = dueDate;
+    }
+
+    public String getTitle() {
+        return title;
     }
 
     public String getDoer() {
-        return mDoer;
+        return doer;
     }
 
     public String getDescription() {
-        return mDescription;
+        return description;
     }
 
     public String getDueDate() {
-        return  mDueDate;
+        return  dueDate;
+    }
+
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
     }
 }

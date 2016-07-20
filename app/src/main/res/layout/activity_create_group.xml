@@ -18,7 +18,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="create group"
-                android:id="@+id/createGroupHeader"
+                android:id="@+id/createChoreHeader"
                 android:textSize="30sp"
                 android:layout_above="@+id/groupNameEditText"
                 android:layout_centerHorizontal="true" />

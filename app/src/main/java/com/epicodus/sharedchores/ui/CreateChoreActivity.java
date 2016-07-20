@@ -1,50 +1,30 @@
 //package com.epicodus.sharedchores.ui;
 //
 //import android.content.Context;
-//import android.content.Intent;
-//import android.graphics.Typeface;
 //import android.support.v7.app.AppCompatActivity;
 //import android.os.Bundle;
 //import android.view.View;
-//import android.widget.AdapterView;
-//import android.widget.ArrayAdapter;
-//import android.widget.Button;
-//import android.widget.EditText;
-//import android.widget.TextView;
 //
-//import com.epicodus.sharedchores.Constants;
 //import com.epicodus.sharedchores.R;
-//import com.epicodus.sharedchores.models.Group;
+//import com.epicodus.sharedchores.models.Chore;
 //import com.firebase.ui.database.FirebaseRecyclerAdapter;
 //import com.google.firebase.auth.FirebaseAuth;
-//import com.google.firebase.database.DataSnapshot;
-//import com.google.firebase.database.DatabaseError;
 //import com.google.firebase.database.DatabaseReference;
-//import com.google.firebase.database.FirebaseDatabase;
-//import com.google.firebase.database.ValueEventListener;
 //
-//import org.parceler.Parcels;
-//
-//import java.util.ArrayList;
-//
-//import butterknife.Bind;
-//import butterknife.ButterKnife;
-//
-//public class CreateGroupActivity extends AppCompatActivity implements View.OnClickListener {
-//
+//public class CreateChoreActivity extends AppCompatActivity implements View.OnClickListener{
 //    private FirebaseAuth mAuth;
 //    private DatabaseReference mDatabaseReference;
 //    private FirebaseRecyclerAdapter mFirebaseAdapter;
-//    private Group group;
+//    private Chore mChore;
 //    View mView;
 //    Context mContext;
 //
 //
 //    //    @Bind(R.id.bottomBar)
 ////    TextView mButtomBar;
-//    @Bind(R.id.createGroupHeader) TextView mCreateGroupHeader;
-//    @Bind(R.id.createGroupButton) Button mCreateGroupButton;
-//    @Bind(R.id.groupHeader) TextView mGroupHeader;
+//    @Bind(R.id.createChoreHeader) TextView mCreateChoreHeader;
+//    @Bind(R.id.createChoreButton) Button mCreateChoreButton;
+//    @Bind(R.id.choreHeader) TextView mChoreHeader;
 //    @Bind(R.id.groupNameTextView) TextView mGroupNameTextView;
 //    @Bind(R.id.groupNameEditText) EditText mGroupNameEditText;
 //
@@ -123,7 +103,4 @@
 //        String pushId = groupRef.getKey();
 //        newGroup.setPushId(pushId);
 //        groupRef.setValue(newGroup);
-//    }
-//
-//
 //}

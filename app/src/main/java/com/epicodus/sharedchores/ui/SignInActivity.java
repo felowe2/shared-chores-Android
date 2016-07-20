@@ -52,6 +52,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
         mAuth = FirebaseAuth.getInstance();
         createAuthProgressDialog();
+
         mAuthListener = new FirebaseAuth.AuthStateListener() {
 
             @Override
@@ -75,22 +76,20 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
             loginWithPassword();
         }
     }
+
     private void loginWithPassword() {
            String emailSignIn = mEmailSignIn.getText().toString().trim();
             String passwordSignIn = mPasswordSignIn.getText().toString().trim();
+
         if (emailSignIn.equals("")) {
             mEmailSignIn.setError("Please enter your email");
             return;
-        }
-        if (passwordSignIn.equals("")) {
+        }if (passwordSignIn.equals("")) {
             mPasswordSignIn.setError("Password cannot be blank");
             return;
         }
-            Intent goToUserPage = new Intent(this, UserChoreListActivity.class);
-            goToUserPage.putExtra("email", emailSignIn);
-            goToUserPage.putExtra("password", passwordSignIn);
-            startActivity(goToUserPage);
 
+        mAuthProgressDialog.show();
         mAuth.signInWithEmailAndPassword(emailSignIn, passwordSignIn)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
 
@@ -100,10 +99,18 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                         Log.d("TAG", "signInWithEmail:onComplete:" + task.isSuccessful());
                         if (!task.isSuccessful()) {
                             Log.w("TAG", "signInWithEmail", task.getException());
-                            Toast.makeText(SignInActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignInActivity.this, "Sorry! Wrong email or password.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+    }
+
+
+    private void createAuthProgressDialog() {
+        mAuthProgressDialog = new ProgressDialog(this);
+        mAuthProgressDialog.setTitle("Loading...");
+        mAuthProgressDialog.setMessage("Authenticating...");
+        mAuthProgressDialog.setCancelable(false);
     }
 
     @Override
@@ -120,10 +127,4 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
-    private void createAuthProgressDialog() {
-        mAuthProgressDialog = new ProgressDialog(this);
-        mAuthProgressDialog.setTitle("Loading...");
-        mAuthProgressDialog.setMessage("Authenticating...");
-        mAuthProgressDialog.setCancelable(false);
-    }
 }

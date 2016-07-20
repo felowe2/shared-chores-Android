@@ -42,11 +42,11 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     EditText mUsernameInput;
     @Bind(R.id.emailInput)
     EditText mEmailInput;
-    @Bind(R.id.passwordInput)
+    @Bind(R.id.choreDoerEditText)
     EditText mPasswordInput;
     @Bind(R.id.password2Input)
     EditText mPassword2Input;
-    @Bind(R.id.signUpButton)
+    @Bind(R.id.createChoreButton)
     Button mSignUpButton;
 
 

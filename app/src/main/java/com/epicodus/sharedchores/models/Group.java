@@ -32,7 +32,7 @@ public class Group {
         return members;
     }
 
-//    public void addMember(User member){
-//
-//    }
+    public void addMember(User member){
+
+    }
 }

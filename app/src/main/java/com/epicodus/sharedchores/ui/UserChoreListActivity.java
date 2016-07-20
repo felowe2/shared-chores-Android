@@ -80,7 +80,7 @@ public class UserChoreListActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(UserChoreListActivity.this, CreateGroupActivity.class);
+                Intent intent = new Intent(UserChoreListActivity.this, AssignChoreActivity.class);
                 startActivity(intent);
 
 

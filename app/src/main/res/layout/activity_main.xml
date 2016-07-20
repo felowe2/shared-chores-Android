@@ -18,7 +18,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:background="@drawable/logo"
-        android:layout_above="@+id/signUpButton"
+        android:layout_above="@+id/createChoreButton"
         android:layout_below="@+id/sharedHappinessTitle"
         android:layout_marginTop="20sp" />
 
@@ -59,7 +59,7 @@
         android:layout_height="wrap_content"
         android:text="Sign Up"
         android:textAllCaps="false"
-        android:id="@+id/signUpButton"
+        android:id="@+id/createChoreButton"
         android:textSize="17sp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"

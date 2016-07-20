@@ -18,7 +18,7 @@ public class SuccessPageActivity extends AppCompatActivity implements View.OnCli
     private TextView mSuccessMessageTextView;
 
 //    @Bind(R.id.successMessageTextView) TextView mSuccessMessageTextView;
-    @Bind(R.id.addMorePeopleButton) Button mAddMorePeopleButton;
+//    @Bind(R.id.addMorePeopleButton) Button mAddMorePeopleButton;
     @Bind(R.id.backToUserChoreListButton) Button mBackToUserChoreListButton;
 
     @Override
@@ -36,17 +36,17 @@ public class SuccessPageActivity extends AppCompatActivity implements View.OnCli
 //        Typeface blazedFont = Typeface.createFromAsset(getAssets(), "fonts/Blazed.ttf");
 
 
-        mAddMorePeopleButton.setOnClickListener(this);
+//        mAddMorePeopleButton.setOnClickListener(this);
         mBackToUserChoreListButton.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View v) {
-        if (v == mAddMorePeopleButton) {
-            Intent goToAssignChoreActivity = new Intent(SuccessPageActivity.this, AssignChoreActivity.class);
-            startActivity(goToAssignChoreActivity);
-        }
+//        if (v == mAddMorePeopleButton) {
+//            Intent goToAssignChoreActivity = new Intent(SuccessPageActivity.this, AssignChoreActivity.class);
+//            startActivity(goToAssignChoreActivity);
+//        }
         if (v == mBackToUserChoreListButton) {
             Intent goToUserPageActivity = new Intent(SuccessPageActivity.this, UserChoreListActivity.class);
             startActivity(goToUserPageActivity);

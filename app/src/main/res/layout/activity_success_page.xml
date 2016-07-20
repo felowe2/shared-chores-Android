@@ -35,8 +35,8 @@ android:background="@color/background_material_light">
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add More People to this chore"
-        android:id="@+id/addMorePeopleButton"
+        android:text="Create another chore"
+        android:id="@+id/createAnotherChoreButton"
         android:textColor="#231F20"
         android:textStyle="bold"
         android:textSize="17sp"
