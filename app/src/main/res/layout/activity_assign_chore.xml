@@ -12,7 +12,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="30dp"
+        android:padding="5dp"
         android:id="@+id/linearLayout1"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
@@ -23,7 +23,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="30dp"
+            android:padding="10dp"
             android:id="@+id/linearLayout"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
@@ -90,7 +90,7 @@
                 android:padding="10dp"
                 android:text="Create"
                 android:background="@drawable/big_button"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:textColor="@color/colorTextIcons" />
 
         </LinearLayout>
@@ -105,8 +105,8 @@
         android:textSize="30dp"
         android:textStyle="bold"
         android:id="@+id/createChoreHeader"
+        android:layout_marginBottom="30dp"
         android:layout_above="@+id/linearLayout1"
         android:layout_centerHorizontal="true" />
-
 
 </RelativeLayout>

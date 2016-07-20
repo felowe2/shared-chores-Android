@@ -141,3 +141,9 @@ public class UserChoreListActivity extends AppCompatActivity {
 
     }
 }
+//        if (view == mGroupNameTextView) {
+//            Intent intent = new Intent(CreateGroupActivity.this, AddPeopleActivity.class);
+//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//            intent.putExtra("group", Parcels.wrap(group));
+//            startActivity(intent);
+//            finish();

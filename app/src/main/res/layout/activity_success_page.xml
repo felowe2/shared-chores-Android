@@ -16,9 +16,19 @@ android:background="@color/background_material_light">
         android:id="@+id/successIconImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/userChoreListHeader"
+        android:layout_above="@+id/successMessageTextView"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="46dp" />
+        android:layout_marginBottom="29dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/successMessageTextView"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/successIconImageView"
+        android:layout_alignStart="@+id/successIconImageView"
+        android:textAlignment="center" />
 
     <Button
         android:layout_width="match_parent"
@@ -44,16 +54,6 @@ android:background="@color/background_material_light">
         android:layout_above="@+id/backToUserChoreListButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="41dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/userChoreListHeader"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/successIconImageView"
-        android:layout_alignStart="@+id/successIconImageView"
-        android:textAlignment="center" />
+        android:layout_marginBottom="21dp" />
 
 </RelativeLayout>

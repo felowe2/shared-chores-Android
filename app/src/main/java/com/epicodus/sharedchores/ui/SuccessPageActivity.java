@@ -9,47 +9,51 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.epicodus.sharedchores.R;
+import com.epicodus.sharedchores.models.Chore;
+
+import org.parceler.Parcels;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class SuccessPageActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView mSuccessMessageTextView;
+    private Chore mChore;
 
-//    @Bind(R.id.successMessageTextView) TextView mSuccessMessageTextView;
-//    @Bind(R.id.addMorePeopleButton) Button mAddMorePeopleButton;
+    @Bind(R.id.successMessageTextView) TextView mSuccessMessageTextView;
+    @Bind(R.id.createAnotherChoreButton) Button mCreateAnotherChoreButton;
     @Bind(R.id.backToUserChoreListButton) Button mBackToUserChoreListButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_success_page);
-        mSuccessMessageTextView = (TextView) findViewById(R.id.userChoreListHeader);
-        Intent intent = getIntent();
-        String choreDoer = intent.getStringExtra("doer_name");
-        Log.v("TEST", choreDoer + "");
-        mSuccessMessageTextView.setText("Congratulations! Chore has been successfully added to " + choreDoer + "'s chore list!");
-
         ButterKnife.bind(this);
 
 //        Typeface blazedFont = Typeface.createFromAsset(getAssets(), "fonts/Blazed.ttf");
 
 
-//        mAddMorePeopleButton.setOnClickListener(this);
+
+        mChore = Parcels.unwrap(getIntent().getParcelableExtra("chore"));
+        String choreDoer = mChore.getDoer();
+        mSuccessMessageTextView.setText("Congratulations! Chore has been successfully added to " + choreDoer + "'s chore list!");
+
+
+        mCreateAnotherChoreButton.setOnClickListener(this);
         mBackToUserChoreListButton.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View v) {
-//        if (v == mAddMorePeopleButton) {
-//            Intent goToAssignChoreActivity = new Intent(SuccessPageActivity.this, AssignChoreActivity.class);
-//            startActivity(goToAssignChoreActivity);
-//        }
+
+        if (v == mCreateAnotherChoreButton) {
+            Intent intent = new Intent(SuccessPageActivity.this, AssignChoreActivity.class);
+            startActivity(intent);
+        }
         if (v == mBackToUserChoreListButton) {
-            Intent goToUserPageActivity = new Intent(SuccessPageActivity.this, UserChoreListActivity.class);
-            startActivity(goToUserPageActivity);
+            Intent intent = new Intent(SuccessPageActivity.this, UserChoreListActivity.class);
+            startActivity(intent);
         }
     }
 }

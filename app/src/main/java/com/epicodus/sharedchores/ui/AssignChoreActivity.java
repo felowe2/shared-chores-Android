@@ -26,45 +26,34 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.parceler.Parcels;
+
 import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+
 public class AssignChoreActivity extends AppCompatActivity implements View.OnClickListener {
 
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabaseReference;
-    private FirebaseRecyclerAdapter mFirebaseAdapter;
-   private Chore chore;
+    private Chore chore;
     View mView;
     Context mContext;
 
-    @Bind(R.id.createChoreHeader)
-    TextView mCreateChoreHeader;
-    @Bind(R.id.choreTitleEditText)
-    EditText mChoreTitleEditText;
-    @Bind(R.id.choreDoerEditText)
-    EditText mChoreDoerEditText;
-    @Bind(R.id.choreDescriptionEditText)
-    EditText mChoreDescriptionEditText;
-    @Bind(R.id.choreDueDateEditText)
-    EditText mChoreDueDateEditText;
-    @Bind(R.id.createChoreButton)
-    Button mCreateChoreButton;
-//    @Bind(R.id.choreSummaryHeader) TextView mChoreHeader;
-//    @Bind(R.id.choreDoerTextView) TextView mChoreDoerTextView;
-//    @Bind(R.id.choreDescriptionTextView) TextView mChoreDescriptionTextView;
-//    @Bind(R.id.choreDueDateTextView) TextView mChoreDueDateTextView;
-//    @Bind(R.id.assignChoreButton) Button mAssignChoreButton;
+    @Bind(R.id.createChoreHeader) TextView mCreateChoreHeader;
+    @Bind(R.id.choreTitleEditText) EditText mChoreTitleEditText;
+    @Bind(R.id.choreDoerEditText) EditText mChoreDoerEditText;
+    @Bind(R.id.choreDescriptionEditText) EditText mChoreDescriptionEditText;
+    @Bind(R.id.choreDueDateEditText) EditText mChoreDueDateEditText;
+    @Bind(R.id.createChoreButton) Button mCreateChoreButton;
 
-    ArrayList<String> userChore = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assign_chore);
-
         ButterKnife.bind(this);
 
 
@@ -93,15 +82,12 @@ public class AssignChoreActivity extends AppCompatActivity implements View.OnCli
                 chore = snapshot.getValue(Chore.class);
 
             }
-//            mGroupNameTextView.setText(group.getName());
-
         }
 
         @Override
         public void onCancelled(DatabaseError databaseError) {
 
         }
-
     };
 
     @Override
@@ -109,22 +95,13 @@ public class AssignChoreActivity extends AppCompatActivity implements View.OnCli
         if (view == mCreateChoreButton) {
             createNewChore();
 
+            Intent intent = new Intent(AssignChoreActivity.this, SuccessPageActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.putExtra("chore", Parcels.wrap(chore));
+            startActivity(intent);
+            finish();
         }
-//        if (view == mGroupNameTextView) {
-//            Intent intent = new Intent(CreateGroupActivity.this, AddPeopleActivity.class);
-//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//            intent.putExtra("group", Parcels.wrap(group));
-//            startActivity(intent);
-//            finish();
-//
-////            Intent intent = new Intent(CreateGroupActivity.this, AddPeopleActivity.class);
-////           intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-////           intent.putExtra("groupName", group.getName());
-////           startActivity(intent);
-////            finish();
-//        }
     }
-
     private void createNewChore() {
         String title = mChoreTitleEditText.getText().toString();
         String description = mChoreDescriptionEditText.getText().toString();
