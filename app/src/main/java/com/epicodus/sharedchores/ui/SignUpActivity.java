@@ -28,7 +28,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
+public class  SignUpActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String TAG = SignUpActivity.class.getSimpleName();
 
     private FirebaseAuth mAuth;

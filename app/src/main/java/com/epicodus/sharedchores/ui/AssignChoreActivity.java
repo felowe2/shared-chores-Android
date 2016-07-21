@@ -64,52 +64,31 @@ public class AssignChoreActivity extends AppCompatActivity implements View.OnCli
 //        mCreateChoreButton.setTypeface(boldieFont);
 //        mChoreHeader.setTypeface(boldieFont);
 // END OF FONTS
-
-        mAuth = FirebaseAuth.getInstance();
-        mDatabaseReference = FirebaseDatabase
-                .getInstance()
-                .getReference(Constants.FIREBASE_CHILD_CHORES);
-        mDatabaseReference.addValueEventListener(choreListener);
-
-
         mCreateChoreButton.setOnClickListener(this);
     }
 
-    ValueEventListener choreListener = new ValueEventListener() {
-        @Override
-        public void onDataChange(DataSnapshot dataSnapshot) {
-            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                chore = snapshot.getValue(Chore.class);
 
-            }
-        }
-
-        @Override
-        public void onCancelled(DatabaseError databaseError) {
-
-        }
-    };
 
     @Override
     public void onClick(View view) {
         if (view == mCreateChoreButton) {
-            createNewChore();
+            Chore newChore = createNewChore();
 
             Intent intent = new Intent(AssignChoreActivity.this, SuccessPageActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            intent.putExtra("chore", Parcels.wrap(chore));
+            intent.putExtra("chore", Parcels.wrap(newChore));
             startActivity(intent);
-            finish();
+            //finish();
         }
     }
-    private void createNewChore() {
+    private Chore createNewChore() {
         String title = mChoreTitleEditText.getText().toString();
         String description = mChoreDescriptionEditText.getText().toString();
         String doer = mChoreDoerEditText.getText().toString();
         String dueDate = mChoreDueDateEditText.getText().toString();
 
 
-        Chore newChore = new Chore(title, description, doer, dueDate);
+        Chore newChore = new Chore(title, doer, description, dueDate);
         DatabaseReference choreRef = FirebaseDatabase
                 .getInstance()
                 .getReference(Constants.FIREBASE_CHILD_CHORES)
@@ -117,6 +96,52 @@ public class AssignChoreActivity extends AppCompatActivity implements View.OnCli
         String pushId = choreRef.getKey();
         newChore.setPushId(pushId);
         choreRef.setValue(newChore);
+
+//        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+//        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_USERS).child(uid).child("choreLists");
+//        userRef.push().setValue(pushId);
+//
+//        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                ArrayList<String> listIds = new ArrayList<String>();
+//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+//                    String listId = snapshot.getValue(String.class);
+//                    listIds.add(listId);
+//                }
+//
+//                final ArrayList<Chore> usersChores = new ArrayList<Chore>();
+//
+//                for (String id : listIds) {
+//                    DatabaseReference usersChoreRef = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_CHORES).child(id);
+//                    usersChoreRef.addListenerForSingleValueEvent(new ValueEventListener() {
+//                        @Override
+//                        public void onDataChange(DataSnapshot dataSnapshot) {
+//                            Chore chore = dataSnapshot.getValue(Chore.class);
+//                            usersChores.add(chore);
+//                            Log.d("usersChores", usersChores.size() + " " + chore.getTitle());
+//
+//                        }
+//
+//                        @Override
+//                        public void onCancelled(DatabaseError databaseError) {
+//
+//                        }
+//                    });
+//                }
+//
+//
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
+
+
+        return newChore;
     }
 }
 //

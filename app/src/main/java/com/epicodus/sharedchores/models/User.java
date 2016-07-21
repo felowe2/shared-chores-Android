@@ -1,12 +1,21 @@
 package com.epicodus.sharedchores.models;
 
+import com.google.firebase.database.IgnoreExtraProperties;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Guest on 7/15/16.
  */
+@IgnoreExtraProperties
 public class User {
-
     String name;
     String email;
+
+
+
+    List<String> choreList = new ArrayList<>();
 
   private String pushId;
 
@@ -17,6 +26,14 @@ public class User {
         this.name = name;
        this.email = email;
         }
+
+    public List<String> getChoreList() {
+        return choreList;
+    }
+
+    public void setChoreList(List<String> choreList) {
+        this.choreList = choreList;
+    }
 
    public String getName() {
           return name;
