@@ -5,6 +5,8 @@ import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -17,9 +19,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.epicodus.sharedchores.Constants;
 import com.epicodus.sharedchores.R;
+import com.epicodus.sharedchores.adapters.FirebaseChoreListViewHolder;
+import com.epicodus.sharedchores.models.Chore;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.w3c.dom.Text;
 
@@ -29,36 +37,35 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 
-public class UserChoreListActivity extends AppCompatActivity {
+public class UserChoreListActivity extends AppCompatActivity implements View.OnClickListener {
 
     ArrayList<String> userChoreList = new ArrayList<String>();
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private DatabaseReference mChoreReference;
+    private FirebaseRecyclerAdapter mFirebaseAdapter;
 
-    @Bind(R.id.userChoreListHeader)
-    TextView mUserChoreListHeader;
-    @Bind(R.id.userChoreListListView)
-    ListView mUserChoreListListView;
-    @Bind(R.id.userChoreListCreateChoreButton)
-    Button mUserChoreListCreateChoreButton;
-
-    private String[] userChores = new String[]{"Sweet Hereafter", "Cricket", "Hawthorne Fish House", "Viking Soul Food",
-            "Red Square", "Horse Brass", "Dick's Kitchen", "Taco Bell", "Me Kha Noodle Bar"};
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+    @Bind(R.id.createChoreButton) Button mCreateChoreButton;
+    @Bind(R.id.choreListHeader) TextView mChoreListHeader;
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_chore_list);
         ButterKnife.bind(this);
 
+        mCreateChoreButton.setOnClickListener(this);
 
 ////////FONTS EVERYTHING
 //////        Typeface boldieFont = Typeface.createFromAsset(getAssets(), "fonts/Boldie.ttf");
 //////        mCreateGroupHeader.setTypeface(boldieFont);
 //////        mCreateGroupButton.setTypeface(boldieFont);
 //////        mGroupHeader.setTypeface(boldieFont);
+
+
 //////// END OF FONTS
 
         mAuth = FirebaseAuth.getInstance();
@@ -74,31 +81,31 @@ public class UserChoreListActivity extends AppCompatActivity {
             }
         };
 
-        mUserChoreListCreateChoreButton.setOnClickListener(new View.OnClickListener() {
+        mChoreReference = FirebaseDatabase
+                .getInstance()
+                .getReference(Constants.FIREBASE_CHILD_CHORES);
 
+        setUpFirebaseAdapter();
+
+        }
+    private void setUpFirebaseAdapter() {
+        mFirebaseAdapter = new FirebaseRecyclerAdapter<Chore, FirebaseChoreListViewHolder>
+                (Chore.class, R.layout.chore_list, FirebaseChoreListViewHolder.class,
+                        mChoreReference) {
 
             @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(UserChoreListActivity.this, AssignChoreActivity.class);
-                startActivity(intent);
-
-
+            protected void populateViewHolder(FirebaseChoreListViewHolder viewHolder, Chore model, int position) {
+                viewHolder.bindChore(model);
             }
-
-        });
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(UserChoreListActivity.this, android.R.layout.simple_list_item_1, userChores);
-        mUserChoreListListView.setAdapter(adapter);
-
-        mUserChoreListListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(UserChoreListActivity.this, UserChoreDetailActivity.class);
-                startActivity(intent);
-            }
-        });
-
+        };
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setAdapter(mFirebaseAdapter);
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mFirebaseAdapter.cleanup();
     }
 
     @Override
@@ -140,10 +147,14 @@ public class UserChoreListActivity extends AppCompatActivity {
         }
 
     }
+
+    @Override
+    public void onClick(View view) {
+        if (view == mCreateChoreButton){
+
+            Intent intent = new Intent(UserChoreListActivity.this, AssignChoreActivity.class);
+            startActivity(intent);
+        }
+
+    }
 }
-//        if (view == mGroupNameTextView) {
-//            Intent intent = new Intent(CreateGroupActivity.this, AddPeopleActivity.class);
-//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//            intent.putExtra("group", Parcels.wrap(group));
-//            startActivity(intent);
-//            finish();
