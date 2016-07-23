@@ -2,12 +2,13 @@ package com.epicodus.sharedchores.models;
 
 import com.google.firebase.database.IgnoreExtraProperties;
 
+import org.parceler.Parcel;
+
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Guest on 7/15/16.
- */
+@Parcel
+
 @IgnoreExtraProperties
 public class User {
     String name;

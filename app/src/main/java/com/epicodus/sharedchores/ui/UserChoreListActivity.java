@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.epicodus.sharedchores.Constants;
 import com.epicodus.sharedchores.R;
 import com.epicodus.sharedchores.adapters.FirebaseChoreListViewHolder;
+import com.epicodus.sharedchores.adapters.FriendListAdapter;
 import com.epicodus.sharedchores.models.Chore;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
@@ -39,7 +40,7 @@ import butterknife.ButterKnife;
 
 public class UserChoreListActivity extends AppCompatActivity implements View.OnClickListener {
 
-    ArrayList<String> userChoreList = new ArrayList<String>();
+//    ArrayList<String> userChoreList = new ArrayList<String>();
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -152,7 +153,7 @@ public class UserChoreListActivity extends AppCompatActivity implements View.OnC
     public void onClick(View view) {
         if (view == mCreateChoreButton){
 
-            Intent intent = new Intent(UserChoreListActivity.this, AssignChoreActivity.class);
+            Intent intent = new Intent(UserChoreListActivity.this, FriendListActivity.class);
             startActivity(intent);
         }
 

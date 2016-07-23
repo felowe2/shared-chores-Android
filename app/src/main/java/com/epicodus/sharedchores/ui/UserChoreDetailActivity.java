@@ -13,19 +13,26 @@ import android.widget.TextView;
 
 import com.epicodus.sharedchores.Constants;
 import com.epicodus.sharedchores.R;
+import com.epicodus.sharedchores.models.Chore;
 import com.epicodus.sharedchores.ui.api.CleaningServicesActivity;
+
+import org.parceler.Parcels;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class UserChoreDetailActivity extends AppCompatActivity implements View.OnClickListener {
 
+    Chore mChore;
+
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mEditor;
 
-    @Bind(R.id.userZipCode)
-    EditText mUserZipCode;
+    @Bind(R.id.userZipCode) EditText mUserZipCode;
     @Bind(R.id.helpSearchButton) Button mHelpSearchButton;
+    @Bind(R.id.choreTitleTextView) TextView mChoreTitleTextView;
+    @Bind(R.id.choreDescriptionTextView) TextView mChoreDescriptionTextView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +42,12 @@ public class UserChoreDetailActivity extends AppCompatActivity implements View.O
 
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mEditor = mSharedPreferences.edit();
+
+
+
+        mChore = Parcels.unwrap(getIntent().getParcelableExtra("chore"));
+        mChoreTitleTextView.setText("chore: " + mChore.getTitle());
+        mChoreDescriptionTextView.setText("description: " + mChore.getDescription());
 
         mHelpSearchButton.setOnClickListener(this);
     }

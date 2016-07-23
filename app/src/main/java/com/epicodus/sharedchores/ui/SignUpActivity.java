@@ -134,7 +134,7 @@ public class  SignUpActivity extends AppCompatActivity implements View.OnClickLi
                     String uid = firebaseUser.getUid();
                     DatabaseReference ref = FirebaseDatabase
                             .getInstance()
-                            .getReference(Constants.FIREBASE_CHILD_USERS)
+                            .getReference(Constants.FIREBASE_CHILD_FRIENDS)
                             .child(uid);
                     ref.setValue(user);
 
