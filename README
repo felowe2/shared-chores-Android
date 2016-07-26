@@ -1,21 +1,20 @@
 
-UNDER CONSTRUCTION...
+#UNDER CONSTRUCTION...
 
-Shared Chores App - Android - Epicodus Independent Project
+##Shared Chores App - Android - Epicodus Independent Project
 
+####By Fernanda Lowe
 
-Implementations
+###Implementations
 Week 1: User Interface Basics -  07/01/2016
 Week 2: Web Service Backends and Fragments- 07/08/2016
 Week 3: Data Persistence - 07/15/2016
 
-By Fernanda Lowe
-
-Description
+###Description
 
 Shared Chores is an Android mobile application for users to share household chores with the people they live with, or simple for anyone who wants to track some kind of activity.
 
-Setup/Installation Requirements
+###Setup/Installation Requirements
 
 * On Android Studio
 1. Check out project from version control
@@ -31,22 +30,22 @@ Setup/Installation Requirements
 8. Navigate through the app.
 
 
-Known Bugs
+###Known Bugs
 
 None;
 
 
-Support and contact details
+###Support and contact details
 
 If while using this application you run into any issues or have questions, ideas, concerns, or would like to make a contribution to the code, please contact me at fe_lowe@hotmail.com
 
 
-Technologies Used
+###Technologies Used
 
 Java and Android Studio.
 
 
-License
+###License
 
 Application can be used under MIT licenses.
 
