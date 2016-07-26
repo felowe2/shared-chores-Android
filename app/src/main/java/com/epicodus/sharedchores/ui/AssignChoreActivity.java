@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.epicodus.sharedchores.Constants;
 import com.epicodus.sharedchores.R;
 import com.epicodus.sharedchores.models.Chore;
+import com.epicodus.sharedchores.models.User;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -29,6 +30,7 @@ import com.google.firebase.database.ValueEventListener;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -41,6 +43,7 @@ public class AssignChoreActivity extends AppCompatActivity implements View.OnCli
     private Chore chore;
     View mView;
     Context mContext;
+    private User mFriend;
 
     @Bind(R.id.createChoreHeader) TextView mCreateChoreHeader;
     @Bind(R.id.choreTitleEditText) EditText mChoreTitleEditText;
@@ -55,6 +58,8 @@ public class AssignChoreActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assign_chore);
         ButterKnife.bind(this);
+
+        mFriend = Parcels.unwrap(getIntent().getParcelableExtra("friend"));
 
 
 //FONTS EVERYTHING
@@ -87,6 +92,7 @@ public class AssignChoreActivity extends AppCompatActivity implements View.OnCli
         String doer = mChoreDoerEditText.getText().toString();
         String dueDate = mChoreDueDateEditText.getText().toString();
 
+        String friendID = mFriend.getPushId();
 
         Chore newChore = new Chore(title, doer, description, dueDate);
         DatabaseReference choreRef = FirebaseDatabase
@@ -96,6 +102,8 @@ public class AssignChoreActivity extends AppCompatActivity implements View.OnCli
         String pushId = choreRef.getKey();
         newChore.setPushId(pushId);
         choreRef.setValue(newChore);
+
+
 
 //        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 //        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_USERS).child(uid).child("choreLists");

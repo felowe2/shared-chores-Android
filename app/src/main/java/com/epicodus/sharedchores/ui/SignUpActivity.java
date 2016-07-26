@@ -25,6 +25,8 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import org.parceler.Parcels;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -102,22 +104,29 @@ public class  SignUpActivity extends AppCompatActivity implements View.OnClickLi
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+
                 mAuthProgressDialog.dismiss();
+
                 if (task.isSuccessful()) {
                     Log.d(TAG, "Authentication successful");
+
                     createFirebaseUserProfile(task.getResult().getUser());
+
                 } else {
                     Toast.makeText(SignUpActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-        Intent goToWelcomePage = new Intent(this, WelcomePageActivity.class);
-        goToWelcomePage.putExtra("username", mUsername);
-//        goToWelcomePage.putExtra("email", email);
-//        goToWelcomePage.putExtra("password", password);
-//        goToWelcomePage.putExtra("password2", password2);
-//        startActivity(goToWelcomePage);
+//        Intent intent = new Intent(SignUpActivity.this, WelcomePageActivity.class);
+//        intent.putExtra("userName", mUsername);
+//        startActivity(intent);
+//
+//        Intent intent = new Intent(SignUpActivity.this, WelcomePageActivity.class);
+//        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//        intent.putExtra("username", Parcels.wrap(mUsername));
+//        startActivity(intent);
+//        //finish();
     }
 
     private void createAuthStateListener() {
@@ -130,8 +139,8 @@ public class  SignUpActivity extends AppCompatActivity implements View.OnClickLi
                 if (firebaseUser != null) {
 
 //THIS CREATE A USER AND IT'S UNIQUE ID AND PUSH IT TO "USERS" NODE IN DATABASE'
-                    User user = new User(firebaseUser.getDisplayName(), firebaseUser.getEmail());
                     String uid = firebaseUser.getUid();
+                    User user = new User(firebaseUser.getDisplayName(), firebaseUser.getEmail());
                     DatabaseReference ref = FirebaseDatabase
                             .getInstance()
                             .getReference(Constants.FIREBASE_CHILD_FRIENDS)
@@ -139,6 +148,7 @@ public class  SignUpActivity extends AppCompatActivity implements View.OnClickLi
                     ref.setValue(user);
 
                     Intent intent = new Intent(SignUpActivity.this, WelcomePageActivity.class);
+                    intent.putExtra("userName", mUsername);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();

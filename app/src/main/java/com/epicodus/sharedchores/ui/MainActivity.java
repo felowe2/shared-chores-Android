@@ -8,7 +8,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.epicodus.sharedchores.Constants;
 import com.epicodus.sharedchores.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -37,6 +47,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mSignUpButton.setOnClickListener(this);
         mSignInButton.setOnClickListener(this);
+
+//        ValueEventListener mListener =
+//
+//        Map<String, Object> map = new HashMap<>();
+//        map.put("0", "this is a test chore!");
+//        map.put("1", "this is another chor!@");
+////
+////        List<String> map = new ArrayList<String>();
+////        map.add("thing 1");
+////        map.add("thing 2");
+//
+//
+//        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+//        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_FRIENDS).child(uid).child("choreList").push();
+//        ref.updateChildren(map);
+
     }
 
     @Override

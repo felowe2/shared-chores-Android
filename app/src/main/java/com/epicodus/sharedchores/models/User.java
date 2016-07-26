@@ -13,10 +13,8 @@ import java.util.List;
 public class User {
     String name;
     String email;
-
-
-
     List<String> choreList = new ArrayList<>();
+    //Strin uid;
 
   private String pushId;
 

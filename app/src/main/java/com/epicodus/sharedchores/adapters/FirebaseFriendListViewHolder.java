@@ -34,6 +34,7 @@ public class FirebaseFriendListViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bindFriend(final User friend) {
+        //mFriend = friend;
         TextView friendName = (TextView) mView.findViewById(R.id.friendName);
         TextView friendEmail = (TextView) mView.findViewById(R.id.friendEmail);
 
