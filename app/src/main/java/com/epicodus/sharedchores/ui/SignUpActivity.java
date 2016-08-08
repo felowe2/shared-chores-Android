@@ -137,40 +137,44 @@ public class  SignUpActivity extends AppCompatActivity implements View.OnClickLi
 
                 final FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
                 if (firebaseUser != null) {
-
-//THIS CREATE A USER AND IT'S UNIQUE ID AND PUSH IT TO "USERS" NODE IN DATABASE'
-                    String uid = firebaseUser.getUid();
-                    User user = new User(firebaseUser.getDisplayName(), firebaseUser.getEmail());
-                    DatabaseReference ref = FirebaseDatabase
-                            .getInstance()
-                            .getReference(Constants.FIREBASE_CHILD_FRIENDS)
-                            .child(uid);
-                    ref.setValue(user);
-
-                    Intent intent = new Intent(SignUpActivity.this, WelcomePageActivity.class);
-                    intent.putExtra("userName", mUsername);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
-                    finish();
+//
+////THIS CREATE A USER AND IT'S UNIQUE ID AND PUSH IT TO "USERS" NODE IN DATABASE'
+//                    String uid = firebaseUser.getUid();
+//                    User user = new User(firebaseUser.getDisplayName(), firebaseUser.getEmail());
+//                    DatabaseReference ref = FirebaseDatabase
+//                            .getInstance()
+//                            .getReference(Constants.FIREBASE_CHILD_FRIENDS)
+//                            .child(uid);
+//                    ref.setValue(user);
+//
+//                    Intent intent = new Intent(SignUpActivity.this, WelcomePageActivity.class);
+//                    intent.putExtra("userName", mUsername);
+//                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                    startActivity(intent);
+//                    finish();
+//                }
                 }
+
             }
 
+            ;
         };
+
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        if (mAuthListener != null) {
-            mAuth.removeAuthStateListener(mAuthListener);
-        }
-    }
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        mAuth.addAuthStateListener(mAuthListener);
+//    }
+//
+//    @Override
+//    public void onStop() {
+//        super.onStop();
+//        if (mAuthListener != null) {
+//            mAuth.removeAuthStateListener(mAuthListener);
+//        }
+//    }
 
     private boolean isValidEmail(String email) {
         boolean isGoodEmail =

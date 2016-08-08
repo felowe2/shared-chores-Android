@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 @Parcel
 
@@ -17,18 +18,17 @@ public class User {
 
     private String name;
     private String email;
-    private String id;
-    private List<String> choreIds = new ArrayList<>();
+    private HashMap<String, Object> timestampUser;
+    private boolean hasUserLoggedIn;
 
     public User() {
     }
 
-
-    public User(String id, String name, String email, List<String> choreIds) {
+    public User(String name, String email, HashMap<String, Object> timestampUser) {
         this.name = name;
         this.email = email;
-        this.id = id;
-        this.choreIds = choreIds;
+       this.timestampUser = timestampUser;
+        this.hasUserLoggedIn = false;
     }
 
     public String getName() {
@@ -39,33 +39,14 @@ public class User {
         return email;
     }
 
-    public String getId() {
-        return id;
-    }
-    public void setId(String id) {
-        this.id = id;
+    public  HashMap<String, Object> getTimestampUser(){
+    return timestampUser;
     }
 
-    public List<String> getChoreIds() {
-        return choreIds;
-    }
-    public void setChoreIds(List<String> choreIdList) {
-        this.choreIds = choreIdList;
+    public boolean hasUserLoggedIn(){
+      return hasUserLoggedIn;
     }
 
-    public void addChoreId(String choreId) {
-        this.choreIds.add(choreId);
-    }
-    @Exclude
-    public Map<String, Object> toMap() {
-        HashMap<String, Object> result = new HashMap<>();
-        result.put("name", name);
-        result.put("id", id);
-        result.put("email", email);
-        result.put("choreIds", choreIds);
-
-        return result;
-    }
 
 }
 

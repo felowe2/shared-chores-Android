@@ -21,6 +21,7 @@ import com.epicodus.sharedchores.models.Chore;
 import com.epicodus.sharedchores.models.User;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,6 +32,7 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -40,17 +42,23 @@ public class AssignChoreActivity extends AppCompatActivity implements View.OnCli
 
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabaseReference;
-    private Chore chore;
+    private Chore mChore;
     View mView;
     Context mContext;
     private User mFriend;
 
-    @Bind(R.id.createChoreHeader) TextView mCreateChoreHeader;
-    @Bind(R.id.choreTitleEditText) EditText mChoreTitleEditText;
-    @Bind(R.id.choreDoerEditText) EditText mChoreDoerEditText;
-    @Bind(R.id.choreDescriptionEditText) EditText mChoreDescriptionEditText;
-    @Bind(R.id.choreDueDateEditText) EditText mChoreDueDateEditText;
-    @Bind(R.id.createChoreButton) Button mCreateChoreButton;
+    @Bind(R.id.createChoreHeader)
+    TextView mCreateChoreHeader;
+    @Bind(R.id.choreTitleEditText)
+    EditText mChoreTitleEditText;
+    @Bind(R.id.choreDoerEditText)
+    EditText mChoreDoerEditText;
+    @Bind(R.id.choreDescriptionEditText)
+    EditText mChoreDescriptionEditText;
+    @Bind(R.id.choreDueDateEditText)
+    EditText mChoreDueDateEditText;
+    @Bind(R.id.createChoreButton)
+    Button mCreateChoreButton;
 
 
     @Override
@@ -73,7 +81,6 @@ public class AssignChoreActivity extends AppCompatActivity implements View.OnCli
     }
 
 
-
     @Override
     public void onClick(View view) {
         if (view == mCreateChoreButton) {
@@ -86,23 +93,28 @@ public class AssignChoreActivity extends AppCompatActivity implements View.OnCli
             //finish();
         }
     }
+
     private Chore createNewChore() {
+
         String title = mChoreTitleEditText.getText().toString();
         String description = mChoreDescriptionEditText.getText().toString();
         String doer = mChoreDoerEditText.getText().toString();
         String dueDate = mChoreDueDateEditText.getText().toString();
+        Long timestamp = System.currentTimeMillis() / 1000;
 
-        String friendID = mFriend.getPushId();
+        Chore newChore = new Chore(title, doer, description, dueDate, timestamp);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
 
-        Chore newChore = new Chore(title, doer, description, dueDate);
         DatabaseReference choreRef = FirebaseDatabase
                 .getInstance()
                 .getReference(Constants.FIREBASE_CHILD_CHORES)
-                .push();
-        String pushId = choreRef.getKey();
-        newChore.setPushId(pushId);
-        choreRef.setValue(newChore);
+                .child(uid);
 
+        DatabaseReference pushRef = choreRef.push();
+        String pushId = pushRef.getKey();
+        newChore.setPushId(pushId);
+        pushRef.setValue(newChore);
 
 
 //        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -151,5 +163,7 @@ public class AssignChoreActivity extends AppCompatActivity implements View.OnCli
 
         return newChore;
     }
+
 }
+
 //
