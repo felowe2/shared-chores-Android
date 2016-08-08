@@ -36,20 +36,14 @@ public class  SignUpActivity extends AppCompatActivity implements View.OnClickLi
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private ProgressDialog mAuthProgressDialog;
-    private String mUsername;
+    private String mUsername, UserEmail, mUserPassword;
 
-    @Bind(R.id.createAccountHeader)
-    TextView mCreateAccountHeader;
-    @Bind(R.id.usernameInput)
-    EditText mUsernameInput;
-    @Bind(R.id.emailInput)
-    EditText mEmailInput;
-    @Bind(R.id.choreDoerEditText)
-    EditText mPasswordInput;
-    @Bind(R.id.password2Input)
-    EditText mPassword2Input;
-    @Bind(R.id.createChoreButton)
-    Button mSignUpButton;
+    @Bind(R.id.createAccountHeader) TextView mCreateAccountHeader;
+    @Bind(R.id.usernameInput) EditText mUsernameInput;
+    @Bind(R.id.emailInput) EditText mEmailInput;
+    @Bind(R.id.choreDoerEditText) EditText mPasswordInput;
+    @Bind(R.id.password2Input) EditText mPassword2Input;
+    @Bind(R.id.createChoreButton) Button mSignUpButton;
 
 
     @Override
